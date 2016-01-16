@@ -4,11 +4,18 @@ package org.usfirst.frc3528.UpNext2016Robot.commands;
 import org.usfirst.frc3528.UpNext2016Robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class DriveWithJoystick extends Command {
+	
+	double frontLeftEncPos;
+	double frontRightEncPos;
+	double backLeftEncPos;
+	double backRightEncPos;
+	double gyroAngle;
 
     public DriveWithJoystick() {
 
@@ -29,6 +36,12 @@ public class DriveWithJoystick extends Command {
     	double right = Robot.oi.driveStick.getRawAxis(5);
     	
     	Robot.driveTrain.driveWithJoystick(left, right);
+    	
+    	gyroAngle = Robot.driveTrain.getGyro();
+    	SmartDashboard.putNumber("Gyro Angle", gyroAngle);
+    	
+    	//backRightEncPos = Robot.driveTrain.backRightPos();
+    	//SmartDashboard.putNumber("Back Right Encoder", backRightEncPos);
     }
 
     // Make this return true when this Command no longer needs to run execute()

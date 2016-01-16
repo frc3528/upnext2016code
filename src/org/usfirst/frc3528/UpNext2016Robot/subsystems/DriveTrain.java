@@ -4,6 +4,7 @@ package org.usfirst.frc3528.UpNext2016Robot.subsystems;
 import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 import org.usfirst.frc3528.UpNext2016Robot.commands.*;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -23,6 +24,8 @@ public class DriveTrain extends Subsystem {
     CANTalon backRightMotor = RobotMap.driveTrainbackRightMotor;
     RobotDrive tankDrive = RobotMap.driveTraintankDrive;
     
+    AnalogGyro gyro = RobotMap.gyro;
+    
     
     public void initDefaultCommand() {
     	
@@ -33,5 +36,46 @@ public class DriveTrain extends Subsystem {
     public void driveWithJoystick(double left, double right) {
     	tankDrive.tankDrive(left, right);
     }
+    
+    public void initGyro() {
+    	gyro.initGyro();
+    	gyro.reset();
+    }
+    
+    public double getGyro() {
+    	return gyro.getAngle();
+    }
+    
+    public void zeroEncoder(CANTalon tal) {
+    	tal.setPosition(0);
+    }
+    
+    public void setBrakeMode(CANTalon tal) {
+    	tal.enableBrakeMode(true);
+    }
+    
+    public void setCoastMode(CANTalon tal) {
+    	tal.enableBrakeMode(false);
+    }
+    /*
+    public double frontLeftPos() {
+		return frontLeftMotor.getEncPosition();
+	}
+
+	
+	public double frontRightPos() {
+		return frontRightMotor.getEncPosition() * -1;
+	}
+
+	
+	public double backLeftPos() {
+		return backLeftMotor.getEncPosition();
+	}
+	
+	
+	public double backRightPos() {
+		return backRightMotor.getEncPosition()* -1;
+	}
+    */
 }
 
