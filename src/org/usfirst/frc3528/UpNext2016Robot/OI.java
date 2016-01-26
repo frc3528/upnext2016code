@@ -1,13 +1,8 @@
 
 package org.usfirst.frc3528.UpNext2016Robot;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc3528.UpNext2016Robot.commands.*;
-import org.usfirst.frc3528.UpNext2016Robot.subsystems.*;
-
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.*;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 /**

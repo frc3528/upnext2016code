@@ -3,14 +3,11 @@ package org.usfirst.frc3528.UpNext2016Robot.subsystems;
 
 import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 import org.usfirst.frc3528.UpNext2016Robot.Utils;
-import org.usfirst.frc3528.UpNext2016Robot.commands.*;
+import org.usfirst.frc3528.UpNext2016Robot.commands.DriveWithJoystick;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Talon;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
