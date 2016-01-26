@@ -32,8 +32,8 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double left = Robot.oi.driveStick.getRawAxis(1);
-    	double right = Robot.oi.driveStick.getRawAxis(5);
+    	double left = Robot.oi.driveStick.getRawAxis(1) * -1;
+    	double right = Robot.oi.driveStick.getRawAxis(5) * -1;
     	
     	Robot.driveTrain.driveWithJoystick(left, right);
     	

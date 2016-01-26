@@ -29,7 +29,7 @@ public class RobotMap {
     public static AnalogGyro gyro;
     
     public static RobotDrive driveTraintankDrive;
-    public static CameraServer server;
+    //public static CameraServer server;
     
     
     
@@ -71,9 +71,9 @@ public class RobotMap {
         
         
         
-        server = CameraServer.getInstance();
-        server.setQuality(50);
-        server.startAutomaticCapture("cam0");
+        //server = CameraServer.getInstance();
+        //server.setQuality(50);
+        //server.startAutomaticCapture("cam0");
         
     }
 }
