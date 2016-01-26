@@ -43,6 +43,8 @@ public class RobotMap {
     
     public static final int GYRO = 0;
     
+    public static double SENSITIVITY = .5;
+    
 
 
     public static void init() {
@@ -66,7 +68,7 @@ public class RobotMap {
         
         driveTraintankDrive.setSafetyEnabled(true);
         driveTraintankDrive.setExpiration(0.1);
-        driveTraintankDrive.setSensitivity(0.5);
+        driveTraintankDrive.setSensitivity(SENSITIVITY);
         driveTraintankDrive.setMaxOutput(1.0);
         
         

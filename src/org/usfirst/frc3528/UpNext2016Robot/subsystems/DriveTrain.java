@@ -2,6 +2,7 @@
 package org.usfirst.frc3528.UpNext2016Robot.subsystems;
 
 import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
+import org.usfirst.frc3528.UpNext2016Robot.Utils;
 import org.usfirst.frc3528.UpNext2016Robot.commands.*;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
@@ -34,7 +35,7 @@ public class DriveTrain extends Subsystem {
     }
     
     public void driveWithJoystick(double left, double right) {
-    	tankDrive.tankDrive(left, right);
+    	tankDrive.tankDrive(Utils.rampSpeed(left, RobotMap.SENSITIVITY), Utils.rampSpeed(right, RobotMap.SENSITIVITY));
     }
     
     public void initGyro() {
