@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +21,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
+    SendableChooser autoChooser;
 
     public static OI oi;
     
@@ -31,13 +34,19 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     RobotMap.init();
     	
-    	System.out.println("==== Todd Drive ====");
+    	System.out.println("==== Insert Robot Name Here (2016) ====");
         
         driveTrain = new DriveTrain();
 
         oi = new OI();
 
         autonomousCommand = new AutonomousCommand();
+        
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Default Command", new AutonomousCommand());
+        //autoChooser.addObject("Add name here", new CommandHere());
+        SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
+        
         
     }
 
@@ -54,7 +63,8 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        if (autonomousCommand != null) autonomousCommand.start();
+       autonomousCommand = (Command) autoChooser.getSelected();
+       autonomousCommand.start();
     }
 
     /**

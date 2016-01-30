@@ -1,6 +1,8 @@
 
 package org.usfirst.frc3528.UpNext2016Robot;
 
+import org.usfirst.frc3528.UpNext2016Robot.commands.ToggleDriveMode;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -13,12 +15,16 @@ public class OI {
     
     public JoystickButton lowGearButton;
     public JoystickButton highGearButton;
+    public JoystickButton driveModeToggleButton;
     public Joystick driveStick;
     
     
     public OI() {
         
         driveStick = new Joystick(0);
+        
+        driveModeToggleButton = new JoystickButton(driveStick, RobotMap.Y);
+        driveModeToggleButton.whenPressed(new ToggleDriveMode());
         
     }
     

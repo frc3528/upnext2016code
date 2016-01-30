@@ -2,6 +2,7 @@
 package org.usfirst.frc3528.UpNext2016Robot.commands;
 
 import org.usfirst.frc3528.UpNext2016Robot.Robot;
+import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -32,10 +33,21 @@ public class DriveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double left = Robot.oi.driveStick.getRawAxis(1) * -1;
-    	double right = Robot.oi.driveStick.getRawAxis(5) * -1;
-    	
-    	Robot.driveTrain.driveWithJoystick(left, right);
+    	if (RobotMap.driveWithSingleJoystick == false) {
+    		
+    		double left = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		double right = Robot.oi.driveStick.getRawAxis(5) * -1;
+    		
+    		Robot.driveTrain.driveWithJoystick(left, right);
+    		
+    	} else {
+    		
+    		double left = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		double right = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		
+    		Robot.driveTrain.driveWithJoystick(left, right);
+    		
+    	}
     	
     	gyroAngle = Robot.driveTrain.getGyro();
     	SmartDashboard.putNumber("Gyro Angle", gyroAngle);

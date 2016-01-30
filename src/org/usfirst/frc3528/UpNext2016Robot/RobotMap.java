@@ -3,6 +3,7 @@ package org.usfirst.frc3528.UpNext2016Robot;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -21,8 +22,10 @@ public class RobotMap {
     public static AnalogGyro gyro;
     
     public static RobotDrive driveTraintankDrive;
-    //public static CameraServer server;
+    public static CameraServer server;
     
+    
+    public static boolean driveWithSingleJoystick = false;
     
     
     
@@ -32,6 +35,8 @@ public class RobotMap {
     public static final int BACK_LEFT_TALON = 3;
     public static final int FRONT_RIGHT_TALON = 2;
     public static final int BACK_RIGHT_TALON = 4;
+    
+    public static final int Y = 4;
     
     public static final int GYRO = 0;
     
@@ -65,9 +70,11 @@ public class RobotMap {
         
         
         
-        //server = CameraServer.getInstance();
-        //server.setQuality(50);
-        //server.startAutomaticCapture("cam0");
+        server = CameraServer.getInstance();
+        server.setQuality(50);
+        server.startAutomaticCapture("cam0");
         
     }
+    
+    
 }
