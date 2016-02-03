@@ -1,4 +1,3 @@
-
 package org.usfirst.frc3528.UpNext2016Robot;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
@@ -68,6 +67,7 @@ public class RobotMap {
         driveTraintankDrive.setSensitivity(SENSITIVITY);
         driveTraintankDrive.setMaxOutput(1.0);
         
+          
         
         
         server = CameraServer.getInstance();
