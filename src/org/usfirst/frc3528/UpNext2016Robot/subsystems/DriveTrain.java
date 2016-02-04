@@ -35,6 +35,14 @@ public class DriveTrain extends Subsystem {
     	tankDrive.tankDrive(Utils.rampSpeed(left, RobotMap.SENSITIVITY), Utils.rampSpeed(right, RobotMap.SENSITIVITY));
     }
     
+    public void drive(double left, double right) {
+    	tankDrive.tankDrive(Utils.rampSpeed(left, RobotMap.SENSITIVITY), Utils.rampSpeed(right, RobotMap.SENSITIVITY));
+    }
+    
+    public void drive(double power) {
+    	drive(power, power);
+    }
+    
     public void initGyro() {
     	gyro.initGyro();
     	gyro.reset();
@@ -55,7 +63,7 @@ public class DriveTrain extends Subsystem {
     public void setCoastMode(CANTalon tal) {
     	tal.enableBrakeMode(false);
     }
-    /*
+    
     public double frontLeftPos() {
 		return frontLeftMotor.getEncPosition();
 	}
@@ -74,6 +82,6 @@ public class DriveTrain extends Subsystem {
 	public double backRightPos() {
 		return backRightMotor.getEncPosition()* -1;
 	}
-    */
+    
 }
 

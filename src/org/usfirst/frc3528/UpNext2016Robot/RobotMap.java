@@ -41,7 +41,28 @@ public class RobotMap {
     
     public static double SENSITIVITY = .5;
     
-
+    // ********** Wheels and Encoders and Distance Oh My **********
+ 	// Wheel Size
+ 	public static final double WHEEL_DIAMETER = 8.0;
+ 	
+ 	// Calculate Wheel Diameter
+ 	public static final double INCHES_PER_REV = Math.PI * WHEEL_DIAMETER;
+ 	
+ 	// Encoder Counts/Ticks per one revolution
+ 	public static final double COUNTS_PER_REV = 1440;//360;
+ 	
+ 	// Calculate how many inches are in one encoder count/tick
+ 	public static final double INCHES_PER_COUNT = INCHES_PER_REV / COUNTS_PER_REV;
+ 	// ********** And they all lived happily ever after. The End. **********
+    
+ 	public static final double DRIVEFORWARDPOWER = 0.75;
+	public static final double DRIVEFORWARDTIME = 8.0;
+	public static final double DRIVEFORWARDFEET = 5.0;
+	public static final double SHORTDRIVEFEET = 0.3;
+ 	
+ 	
+ 	
+ 	
 
     public static void init() {
         
