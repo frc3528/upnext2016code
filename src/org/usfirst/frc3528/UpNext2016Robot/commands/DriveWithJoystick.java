@@ -35,15 +35,25 @@ public class DriveWithJoystick extends Command {
     protected void execute() {
     	if (RobotMap.driveWithSingleJoystick == false) {
     		
-    		double left = Robot.oi.driveStick.getRawAxis(1) * -1;
-    		double right = Robot.oi.driveStick.getRawAxis(5) * -1;
+    		//double left = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		//double right = Robot.oi.driveStick.getRawAxis(5) * -1;
+    		
+    		//Robot.driveTrain.driveWithJoystick(left, right);
+    		
+    		double left = Robot.oi.leftStick.getRawAxis(1) * -1;
+    		double right = Robot.oi.rightStick.getRawAxis(1) * -1;
     		
     		Robot.driveTrain.driveWithJoystick(left, right);
     		
     	} else {
     		
-    		double left = Robot.oi.driveStick.getRawAxis(1) * -1;
-    		double right = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		//double left = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		//double right = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		
+    		//Robot.driveTrain.driveWithJoystick(left, right);
+    		
+    		double left = Robot.oi.rightStick.getRawAxis(1) * -1;
+    		double right = Robot.oi.rightStick.getRawAxis(1) * -1;
     		
     		Robot.driveTrain.driveWithJoystick(left, right);
     		

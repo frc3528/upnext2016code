@@ -16,22 +16,34 @@ public class OI {
     public JoystickButton lowGearButton;
     public JoystickButton highGearButton;
     public JoystickButton driveModeToggleButton;
-    public Joystick driveStick;
+    public JoystickButton madCatsToggleDrive1;
+    public JoystickButton madCatsToggleDrive2;
+    //public Joystick driveStick;
+    public Joystick leftStick;
+    public Joystick rightStick;
     
     
     public OI() {
         
-        driveStick = new Joystick(0);
+        //driveStick = new Joystick(0);
+        leftStick = new Joystick(1);
+        rightStick = new Joystick(2);
         
-        driveModeToggleButton = new JoystickButton(driveStick, RobotMap.Y);
-        driveModeToggleButton.whenPressed(new ToggleDriveMode());
+        //driveModeToggleButton = new JoystickButton(driveStick, RobotMap.Y);
+        //driveModeToggleButton.whenPressed(new ToggleDriveMode());
+        
+        madCatsToggleDrive1 = new JoystickButton(leftStick, RobotMap.TRIGGER);
+        madCatsToggleDrive1.whenPressed(new ToggleDriveMode());
+        
+        madCatsToggleDrive2 = new JoystickButton(rightStick, RobotMap.TRIGGER);
+        madCatsToggleDrive2.whenPressed(new ToggleDriveMode());
         
     }
     
     
-    public Joystick getDriveStick() {
-        return driveStick;
-    }
+    //public Joystick getDriveStick() {
+    //    return driveStick;
+    //}
     
     
 }

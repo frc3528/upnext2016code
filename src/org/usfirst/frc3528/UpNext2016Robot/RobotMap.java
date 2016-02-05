@@ -36,6 +36,7 @@ public class RobotMap {
     public static final int BACK_RIGHT_TALON = 4;
     
     public static final int Y = 4;
+    public static final int TRIGGER = 2;
     
     public static final int GYRO = 0;
     
