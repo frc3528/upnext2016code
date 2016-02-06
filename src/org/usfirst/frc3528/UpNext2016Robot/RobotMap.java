@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
@@ -14,6 +15,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class RobotMap {
     
+	// Drivetrain
     public static CANTalon driveTrainfrontLeftMotor;
     public static CANTalon driveTrainfrontRightMotor;
     public static CANTalon driveTrainbackLeftMotor;
@@ -21,28 +23,45 @@ public class RobotMap {
     public static AnalogGyro gyro;
     
     public static RobotDrive driveTraintankDrive;
-    public static CameraServer server;
-    
-    
     public static boolean driveWithSingleJoystick = false;
     
     
+    // Arm
+    public static VictorSP armDriveMotor;
+    public static VictorSP intakeDriveMotor;
     
-    // CONSTANTS
+    public static boolean manualArmDrive = true;
     
+    
+    // Camera
+    public static CameraServer server;
+    
+    
+    
+    //            ***CONSTANTS***
+    
+    
+    // DriveTrain
     public static final int FRONT_LEFT_TALON = 1;
     public static final int BACK_LEFT_TALON = 3;
     public static final int FRONT_RIGHT_TALON = 2;
     public static final int BACK_RIGHT_TALON = 4;
     
+    public static final int GYRO = 0;
+    public static double SENSITIVITY = .5;
+    
+    // Arm
+    
+    public static final int ARM_MOTOR_VICTOR = 0;
+    public static final int INTAKE_MOTOR_VICTOR = 1;
+    
+    
+    // Joystick Buttons
     public static final int Y = 4;
     public static final int TRIGGER = 2;
     
-    public static final int GYRO = 0;
     
-    public static double SENSITIVITY = .5;
-    
-    // ********** Wheels and Encoders and Distance Oh My **********
+    //                     ********** Wheels and Encoders and Distance Oh My **********
  	// Wheel Size
  	public static final double WHEEL_DIAMETER = 8.0;
  	
@@ -54,13 +73,15 @@ public class RobotMap {
  	
  	// Calculate how many inches are in one encoder count/tick
  	public static final double INCHES_PER_COUNT = INCHES_PER_REV / COUNTS_PER_REV;
- 	// ********** And they all lived happily ever after. The End. **********
+ 	
+ 	//                 ********** And they all lived happily ever after. The End. **********
     
+ 	
+ 	
  	public static final double DRIVEFORWARDPOWER = 0.75;
 	public static final double DRIVEFORWARDTIME = 8.0;
 	public static final double DRIVEFORWARDFEET = 5.0;
 	public static final double SHORTDRIVEFEET = 0.3;
- 	
  	
  	
  	
@@ -84,12 +105,18 @@ public class RobotMap {
         
         gyro = new AnalogGyro(GYRO);
         
+        
+        armDriveMotor = new VictorSP(ARM_MOTOR_VICTOR);
+        intakeDriveMotor = new VictorSP(INTAKE_MOTOR_VICTOR);
+        
+        
+        
         driveTraintankDrive.setSafetyEnabled(true);
         driveTraintankDrive.setExpiration(0.1);
         driveTraintankDrive.setSensitivity(SENSITIVITY);
         driveTraintankDrive.setMaxOutput(1.0);
         
-          
+        
         
         
         server = CameraServer.getInstance();

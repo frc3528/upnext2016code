@@ -24,8 +24,8 @@ public class Robot extends IterativeRobot {
     SendableChooser autoChooser;
 
     public static OI oi;
-    
     public static DriveTrain driveTrain;
+    public static IntakeArm intakeArm;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -39,6 +39,8 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
 
         oi = new OI();
+        
+        intakeArm = new IntakeArm();
 
         autonomousCommand = new AutonomousCommand();
         

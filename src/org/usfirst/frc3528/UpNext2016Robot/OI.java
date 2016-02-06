@@ -21,6 +21,7 @@ public class OI {
     //public Joystick driveStick;
     public Joystick leftStick;
     public Joystick rightStick;
+    public Joystick controlStick;
     
     
     public OI() {
@@ -28,6 +29,7 @@ public class OI {
         //driveStick = new Joystick(0);
         leftStick = new Joystick(1);
         rightStick = new Joystick(2);
+        controlStick = new Joystick(3);
         
         //driveModeToggleButton = new JoystickButton(driveStick, RobotMap.Y);
         //driveModeToggleButton.whenPressed(new ToggleDriveMode());
