@@ -24,11 +24,11 @@ public class DriveIntakeMotor extends Command {
     protected void execute() {
     	if (RobotMap.manualArmDrive) {
     		if (Robot.oi.controlLeftTrigger.get()) {
-    			Robot.intakeArm.driveIntakeWithTriggers(1);
+    			Robot.intakeArm.driveIntakeWithTriggers(0.5);
     		}
     		
     		if (Robot.oi.controlRightTrigger.get()) {
-    			Robot.intakeArm.driveIntakeWithTriggers(-1);
+    			Robot.intakeArm.driveIntakeWithTriggers(-0.5);
     		}
     	}
     }
