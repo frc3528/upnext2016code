@@ -32,11 +32,11 @@ public class DriveTrain extends Subsystem {
     }
     
     public void driveWithJoystick(double left, double right) {
-    	tankDrive.tankDrive(Utils.rampSpeed(left, RobotMap.SENSITIVITY), Utils.rampSpeed(right, RobotMap.SENSITIVITY));
+    	tankDrive.tankDrive(Utils.rampSpeed(left, RobotMap.SENSITIVITY), Utils.rampSpeed(right, RobotMap.SENSITIVITY), true);
     }
     
     public void drive(double left, double right) {
-    	tankDrive.tankDrive(Utils.rampSpeed(left, RobotMap.SENSITIVITY), Utils.rampSpeed(right, RobotMap.SENSITIVITY));
+    	tankDrive.tankDrive(Utils.rampSpeed(left, RobotMap.SENSITIVITY), Utils.rampSpeed(right, RobotMap.SENSITIVITY), true);
     }
     
     public void drive(double power) {
