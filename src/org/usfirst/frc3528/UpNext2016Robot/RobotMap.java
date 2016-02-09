@@ -63,8 +63,13 @@ public class RobotMap {
     public static final int LEFT_TRIGGER = 5;
     public static final int RIGHT_TRIGGER = 6;
     
-    public static final double JOYSTICK_TOP = .75;
-    public static final double JOYTICK_BOTTOM = -.75;
+    public static final double JOYSTICK_RANGE_MAX = 1.0;
+    public static final double JOYTICK_RANGE_MIN = -1.0;
+    public static final double JOYTICK_SCALE = .75;
+    public static final double JOYTICK_CURVE = 3;  // this is the exponent (such as square or cube)
+    public static final double JOYSTICK_DEADBAND_MAX = .1;
+    public static final double JOYSTICK_DEADBAND_MIN = -.1;
+    
     
     
     //                     ********** Wheels and Encoders and Distance Oh My **********

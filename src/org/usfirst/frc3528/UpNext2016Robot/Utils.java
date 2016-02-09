@@ -2,42 +2,44 @@ package org.usfirst.frc3528.UpNext2016Robot;
 
 public class Utils {
 
-	//A method used for smooth driving
-	public static double rampSpeed(double input) {
-    	//auto set sensitivity to .5
-    	return rampSpeed(input, .5);
-	}	
-
-
-	public static double rampSpeed(double input, double sensitivity) {
-
-    	if (IsInDeadband(input)) {
+	public static double transform( double input ) {
+		
+		// deadband check
+		if ( isInDeadband( input ) ) {
     		return 0;
     	}
-    	if (IsAtTop(input)) {
-    		return RobotMap.JOYSTICK_TOP;
+		
+		// clip the input to min & max
+		input = ( clip(input) );
+		
+		// scale the input value
+		double output = input * RobotMap.JOYTICK_SCALE;
+		
+		// curve the input value
+		output = Math.pow( output, RobotMap.JOYTICK_CURVE );
+		
+		
+		return output;
+	}
+	
+
+	private static boolean isInDeadband(double input) {
+		return input > RobotMap.JOYSTICK_DEADBAND_MIN && input < RobotMap.JOYSTICK_DEADBAND_MAX;
+	}
+
+	
+	
+	private static double clip( double input ) {
+	
+		double output = input;
+		
+		if ( input > RobotMap.JOYSTICK_RANGE_MAX ) {
+    		output = RobotMap.JOYSTICK_RANGE_MAX;
+    	} else if ( input < RobotMap.JOYTICK_RANGE_MIN ) {
+    		output = RobotMap.JOYTICK_RANGE_MIN;
     	}
+		
+		return output;
     	
-    	if(IsAtBottom(input)) {
-    		return RobotMap.JOYTICK_BOTTOM;
-    	}
-
-    	//formula for ramping: f(x) = ax^3 + (1-a)x where a is the sensitivity and x is the input
-    	return (sensitivity * input * input * input + (1 - sensitivity) * input);
-	}
-
-
-	private static boolean IsInDeadband(double input) {
-		return input > -.1 && input < .1;
-	}
-
-	
-	private static boolean IsAtTop(double input) {
-		return input >= RobotMap.JOYSTICK_TOP;
-	}
-	
-	
-	private static boolean IsAtBottom(double input) {
-		return input <= RobotMap.JOYTICK_BOTTOM;
 	}
 }
