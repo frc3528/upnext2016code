@@ -63,6 +63,9 @@ public class RobotMap {
     public static final int LEFT_TRIGGER = 5;
     public static final int RIGHT_TRIGGER = 6;
     
+    public static final double JOYSTICK_TOP = .75;
+    public static final double JOYTICK_BOTTOM = -.75;
+    
     
     //                     ********** Wheels and Encoders and Distance Oh My **********
  	// Wheel Size
@@ -79,13 +82,14 @@ public class RobotMap {
  	
  	//                 ********** And they all lived happily ever after. The End. **********
     
- 	
- 	
+ 
+ 
+ 	/*
  	public static final double DRIVEFORWARDPOWER = 0.75;
 	public static final double DRIVEFORWARDTIME = 8.0;
 	public static final double DRIVEFORWARDFEET = 5.0;
 	public static final double SHORTDRIVEFEET = 0.3;
- 	
+ 	*/
  	
  	
 

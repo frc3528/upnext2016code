@@ -13,13 +13,13 @@ public class Utils {
 
     	if (IsInDeadband(input)) {
     		return 0;
-    }
+    	}
     	if (IsAtTop(input)) {
-    		return .75;
+    		return RobotMap.JOYSTICK_TOP;
     	}
     	
     	if(IsAtBottom(input)) {
-    		return -.75;
+    		return RobotMap.JOYTICK_BOTTOM;
     	}
 
     	//formula for ramping: f(x) = ax^3 + (1-a)x where a is the sensitivity and x is the input
@@ -33,11 +33,11 @@ public class Utils {
 
 	
 	private static boolean IsAtTop(double input) {
-		return input >= .75;
+		return input >= RobotMap.JOYSTICK_TOP;
 	}
 	
 	
 	private static boolean IsAtBottom(double input) {
-		return input <= -.75; 
+		return input <= RobotMap.JOYTICK_BOTTOM;
 	}
 }

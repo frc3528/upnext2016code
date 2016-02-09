@@ -37,10 +37,13 @@ public class Robot extends IterativeRobot {
     	System.out.println("==== Insert Robot Name Here (2016) ====");
         
         driveTrain = new DriveTrain();
-
+        intakeArm = new IntakeArm();
+        
+        
+        
         oi = new OI();
         
-        intakeArm = new IntakeArm();
+
 
         autonomousCommand = new AutonomousCommand();
         
