@@ -1,6 +1,7 @@
 
 package org.usfirst.frc3528.UpNext2016Robot;
 
+import org.usfirst.frc3528.UpNext2016Robot.commands.DriveIntakeMotor;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ToggleDriveMode;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -18,6 +19,8 @@ public class OI {
     public JoystickButton driveModeToggleButton;
     public JoystickButton madCatsToggleDrive1;
     public JoystickButton madCatsToggleDrive2;
+    public JoystickButton controlLeftTrigger;
+    public JoystickButton controlRightTrigger;
     public Joystick driveStick;
     //public Joystick leftStick;
     //public Joystick rightStick;
@@ -30,6 +33,12 @@ public class OI {
         //leftStick = new Joystick(1);
         //rightStick = new Joystick(2);
         controlStick = new Joystick(3);
+        
+        controlLeftTrigger = new JoystickButton(controlStick, RobotMap.LEFT_TRIGGER);
+        controlLeftTrigger.whenPressed(new DriveIntakeMotor());
+        
+        controlRightTrigger = new JoystickButton(controlStick, RobotMap.RIGHT_TRIGGER);
+        controlRightTrigger.whenPressed(new DriveIntakeMotor());
         
         driveModeToggleButton = new JoystickButton(driveStick, RobotMap.Y);
         driveModeToggleButton.whenPressed(new ToggleDriveMode());

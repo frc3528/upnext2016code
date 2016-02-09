@@ -60,6 +60,9 @@ public class RobotMap {
     public static final int Y = 4;
     public static final int TRIGGER = 2;
     
+    public static final int LEFT_TRIGGER = 5;
+    public static final int RIGHT_TRIGGER = 6;
+    
     
     //                     ********** Wheels and Encoders and Distance Oh My **********
  	// Wheel Size

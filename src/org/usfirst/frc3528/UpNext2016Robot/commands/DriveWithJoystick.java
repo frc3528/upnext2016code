@@ -59,12 +59,15 @@ public class DriveWithJoystick extends Command {
     		
     	}
     	
+    	frontLeftEncPos = Robot.driveTrain.frontLeftPos();
+    	frontRightEncPos = Robot.driveTrain.frontRightPos();
+    	
     	gyroAngle = Robot.driveTrain.getGyro();
     	SmartDashboard.putNumber("Gyro Angle", gyroAngle);
     	SmartDashboard.putBoolean("In Single Joystick Mode: ", RobotMap.driveWithSingleJoystick);
+    	SmartDashboard.putNumber("Left Encoder: ", frontLeftEncPos);
+    	SmartDashboard.putNumber("Right Encoder: ", frontRightEncPos);
     	
-    	//backRightEncPos = Robot.driveTrain.backRightPos();
-    	//SmartDashboard.putNumber("Back Right Encoder", backRightEncPos);
     }
 
     // Make this return true when this Command no longer needs to run execute()
