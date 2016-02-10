@@ -149,6 +149,7 @@ public class RobotMap {
         driveTraintankDrive.setSensitivity(SENSITIVITY);
         driveTraintankDrive.setMaxOutput(1.0);
         
+        armDriveMotor.setSafetyEnabled(false);
         
         
         server = CameraServer.getInstance();

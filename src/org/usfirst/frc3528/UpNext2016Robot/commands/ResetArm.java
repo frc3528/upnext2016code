@@ -19,17 +19,18 @@ public class ResetArm extends Command {
     protected void initialize() {
     	setTimeout(4);
     	
-    	Robot.intakeArm.driveArm(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
+    	Robot.intakeArm.driveArm(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("==========Reached isFinished Method==========");
+    	//System.out.println("==========Reached isFinished Method==========");
+    	System.out.println("isTimedOut: " + isTimedOut() + " ||| armIn: " + Robot.intakeArm.armIn());
         return isTimedOut() || Robot.intakeArm.armIn();
     }
 
