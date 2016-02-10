@@ -68,6 +68,7 @@ public class RobotMap {
     
     
     // Joystick Buttons
+    public static final int A = 1;
     public static final int X = 3;
     public static final int Y = 4;
     

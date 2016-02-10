@@ -2,6 +2,7 @@
 package org.usfirst.frc3528.UpNext2016Robot;
 
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveIntakeMotor;
+import org.usfirst.frc3528.UpNext2016Robot.commands.ResetArm;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ReverseDriveControl;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ToggleDriveMode;
 
@@ -23,6 +24,7 @@ public class OI {
     public JoystickButton controlLeftTrigger;
     public JoystickButton controlRightTrigger;
     public JoystickButton reverseDriveControl;
+    public JoystickButton resetArmButton;
     public Joystick driveStick;
     //public Joystick leftStick;
     //public Joystick rightStick;
@@ -47,6 +49,9 @@ public class OI {
         
         reverseDriveControl = new JoystickButton(driveStick, RobotMap.X);
         reverseDriveControl.whenPressed(new ReverseDriveControl());
+        
+        resetArmButton = new JoystickButton(controlStick, RobotMap.A);
+        resetArmButton.whenPressed(new ResetArm());
         
         //madCatsToggleDrive1 = new JoystickButton(leftStick, RobotMap.TRIGGER);
         //madCatsToggleDrive1.whenPressed(new ToggleDriveMode());

@@ -31,6 +31,10 @@ public class IntakeArm extends Subsystem {
     	armMotor.set(power);
     }
     
+    public void driveArm(double power) {
+    	armMotor.set(power);
+    }
+    
     public void driveIntakeWithTriggers(double power) {
     	intakeMotor.set(power);
     }
