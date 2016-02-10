@@ -3,7 +3,10 @@ package org.usfirst.frc3528.UpNext2016Robot;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -24,11 +27,15 @@ public class RobotMap {
     
     public static RobotDrive driveTraintankDrive;
     public static boolean driveWithSingleJoystick = false;
+    public static boolean driveIsReversed = false;
     
     
     // Arm
     public static VictorSP armDriveMotor;
     public static VictorSP intakeDriveMotor;
+    public static Encoder armEncoder;
+    public static DigitalInput armIn;
+    public static DigitalInput armOut;
     
     public static boolean manualArmDrive = true;
     
@@ -54,10 +61,16 @@ public class RobotMap {
     
     public static final int ARM_MOTOR_VICTOR = 0;
     public static final int INTAKE_MOTOR_VICTOR = 1;
+    public static final int ARM_ENCODER_A = 0;
+    public static final int ARM_ENCODER_B = 1;
+    public static final int ARM_IN = 2;
+    public static final int ARM_OUT = 3;
     
     
     // Joystick Buttons
+    public static final int X = 3;
     public static final int Y = 4;
+    
     public static final int TRIGGER = 2;
     
     public static final int LEFT_TRIGGER = 5;
@@ -101,15 +114,19 @@ public class RobotMap {
     public static void init() {
         
         driveTrainfrontLeftMotor = new CANTalon(FRONT_LEFT_TALON);
+        driveTrainfrontLeftMotor.setInverted(true);
         LiveWindow.addActuator("DriveTrain", "frontLeftMotor", (CANTalon) driveTrainfrontLeftMotor);
         
         driveTrainfrontRightMotor = new CANTalon(FRONT_RIGHT_TALON);
+        driveTrainfrontRightMotor.setInverted(true);
         LiveWindow.addActuator("DriveTrain", "frontRightMotor", (CANTalon) driveTrainfrontRightMotor);
         
         driveTrainbackLeftMotor = new CANTalon(BACK_LEFT_TALON);
+        driveTrainbackLeftMotor.setInverted(true);
         LiveWindow.addActuator("DriveTrain", "backLeftMotor", (CANTalon) driveTrainbackLeftMotor);
         
         driveTrainbackRightMotor = new CANTalon(BACK_RIGHT_TALON);
+        driveTrainbackRightMotor.setInverted(true);
         LiveWindow.addActuator("DriveTrain", "backRightMotor", (CANTalon) driveTrainbackRightMotor);
         
         driveTraintankDrive = new RobotDrive(driveTrainfrontLeftMotor, driveTrainbackLeftMotor,
@@ -121,7 +138,10 @@ public class RobotMap {
         armDriveMotor = new VictorSP(ARM_MOTOR_VICTOR);
         intakeDriveMotor = new VictorSP(INTAKE_MOTOR_VICTOR);
         
+        armEncoder = new Encoder(ARM_ENCODER_A, ARM_ENCODER_B);
         
+        armIn = new DigitalInput(ARM_IN);
+        armOut = new DigitalInput(ARM_OUT);
         
         driveTraintankDrive.setSafetyEnabled(true);
         driveTraintankDrive.setExpiration(0.1);

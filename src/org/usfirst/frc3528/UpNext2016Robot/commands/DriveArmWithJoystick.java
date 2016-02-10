@@ -10,7 +10,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveArmWithJoystick extends Command {
-
+	
+	double armEncoderPos;
+	boolean isArmIn;
+	boolean isArmOut;
+	
     public DriveArmWithJoystick() {
         
     	requires(Robot.intakeArm);
@@ -23,6 +27,11 @@ public class DriveArmWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+    	armEncoderPos = Robot.intakeArm.getArmPos();
+    	isArmIn = Robot.intakeArm.armIn();
+    	isArmOut = Robot.intakeArm.armOut();
+    	
     	if (RobotMap.manualArmDrive) {
     		
     		double power = Robot.oi.controlStick.getRawAxis(5);
@@ -30,7 +39,9 @@ public class DriveArmWithJoystick extends Command {
     		
     	}
     	
-    	
+    	SmartDashboard.putNumber("Arm Encoder", armEncoderPos);
+    	SmartDashboard.putBoolean("Arm In: ", isArmIn);
+    	SmartDashboard.putBoolean("Arm Out: ", isArmOut);
     	
     }
 

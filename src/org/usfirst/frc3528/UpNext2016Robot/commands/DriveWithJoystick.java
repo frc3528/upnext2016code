@@ -34,26 +34,42 @@ public class DriveWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (RobotMap.driveWithSingleJoystick == false) {
+    		if (!RobotMap.driveIsReversed) {
+    			
+    			double left = Robot.oi.driveStick.getRawAxis(1);
+    			double right = Robot.oi.driveStick.getRawAxis(5);
     		
-    		double left = Robot.oi.driveStick.getRawAxis(1) * -1;
-    		double right = Robot.oi.driveStick.getRawAxis(5) * -1;
+    			Robot.driveTrain.driveWithJoystick(left, right);
+    			
+    		} else {
+
+    			double right = Robot.oi.driveStick.getRawAxis(1) * -1;
+    			double left = Robot.oi.driveStick.getRawAxis(5) * -1;
     		
-    		Robot.driveTrain.driveWithJoystick(left, right);
-    		
-    		//double left = Robot.oi.leftStick.getRawAxis(1) * -1;
-    		//double right = Robot.oi.rightStick.getRawAxis(1) * -1;
+    			Robot.driveTrain.driveWithJoystick(left, right);
+    			
+    		}
+    		//double left = Robot.oi.leftStick.getRawAxis(1) * driveMultiplier;
+    		//double right = Robot.oi.rightStick.getRawAxis(1) * driveMultiplier;
     		
     		//Robot.driveTrain.driveWithJoystick(left, right);
     		
     	} else {
     		
-    		double left = Robot.oi.driveStick.getRawAxis(1) * -1;
-    		double right = Robot.oi.driveStick.getRawAxis(1) * -1;
+    		if (!RobotMap.driveIsReversed) {
+    			double left = Robot.oi.driveStick.getRawAxis(1);
+    			double right = Robot.oi.driveStick.getRawAxis(1);
+    			
+    			Robot.driveTrain.driveWithJoystick(left, right);
+    		} else {
+    			double left = Robot.oi.driveStick.getRawAxis(1) * -1;
+    			double right = Robot.oi.driveStick.getRawAxis(1) * -1;
+    			
+    			Robot.driveTrain.driveWithJoystick(left, right);
+    		}
     		
-    		Robot.driveTrain.driveWithJoystick(left, right);
-    		
-    		//double left = Robot.oi.rightStick.getRawAxis(1) * -1;
-    		//double right = Robot.oi.rightStick.getRawAxis(1) * -1;
+    		//double left = Robot.oi.rightStick.getRawAxis(1) * driveMultiplier;
+    		//double right = Robot.oi.rightStick.getRawAxis(1) * driveMultiplier;
     		
     		//Robot.driveTrain.driveWithJoystick(left, right);
     		
