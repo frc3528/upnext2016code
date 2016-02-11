@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class IntakeArm extends Subsystem {
     
     VictorSP armMotor = RobotMap.armDriveMotor;
-    VictorSP intakeMotor = RobotMap.intakeDriveMotor;
     
     Encoder armEncoder = RobotMap.armEncoder;
     
@@ -33,10 +32,6 @@ public class IntakeArm extends Subsystem {
     
     public void driveArm(double power) {
     	armMotor.set(power);
-    }
-    
-    public void driveIntakeWithTriggers(double power) {
-    	intakeMotor.set(power);
     }
     
     public int getArmPos() {

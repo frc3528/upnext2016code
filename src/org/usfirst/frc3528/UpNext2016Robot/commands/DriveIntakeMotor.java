@@ -12,7 +12,7 @@ public class DriveIntakeMotor extends Command {
 
     public DriveIntakeMotor() {
     	
-    	requires(Robot.intakeArm);
+    	requires(Robot.ballGatherer);
     	
     }
 
@@ -24,11 +24,11 @@ public class DriveIntakeMotor extends Command {
     protected void execute() {
     	if (RobotMap.manualArmDrive) {
     		if (Robot.oi.controlLeftTrigger.get()) {
-    			Robot.intakeArm.driveIntakeWithTriggers(0.5);
+    			Robot.ballGatherer.driveIntakeWithTriggers(0.5);
     		}
     		
     		if (Robot.oi.controlRightTrigger.get()) {
-    			Robot.intakeArm.driveIntakeWithTriggers(-0.5);
+    			Robot.ballGatherer.driveIntakeWithTriggers(-0.5);
     		}
     	}
     }
@@ -40,7 +40,7 @@ public class DriveIntakeMotor extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intakeArm.driveIntakeWithTriggers(0);
+    	Robot.ballGatherer.driveIntakeWithTriggers(0);
     }
 
     // Called when another command which requires one or more of the same

@@ -26,6 +26,7 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static IntakeArm intakeArm;
+    public static BallGatherer ballGatherer;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -39,6 +40,8 @@ public class Robot extends IterativeRobot {
         driveTrain = new DriveTrain();
 
         intakeArm = new IntakeArm();
+        
+        ballGatherer = new BallGatherer();
         
         
         
