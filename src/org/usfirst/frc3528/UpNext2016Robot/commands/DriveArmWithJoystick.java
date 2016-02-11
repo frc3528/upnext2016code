@@ -39,6 +39,8 @@ public class DriveArmWithJoystick extends Command {
     		if (isArmIn) {
     			if (power >= 0) {
     				Robot.intakeArm.driveArmWithJoystick(power);
+    			} else {
+    				Robot.intakeArm.driveArmWithJoystick(0);
     			}
     		} else {
     			Robot.intakeArm.driveArmWithJoystick(power);

@@ -28,6 +28,7 @@ public class RobotMap {
     public static RobotDrive driveTraintankDrive;
     public static boolean driveWithSingleJoystick = false;
     public static boolean driveIsReversed = false;
+    public static boolean isHighGear = false;
     
     
     // Arm
@@ -72,19 +73,18 @@ public class RobotMap {
     public static final int B = 2;
     public static final int X = 3;
     public static final int Y = 4;
-    
     public static final int TRIGGER = 2;
-    
     public static final int LEFT_TRIGGER = 5;
     public static final int RIGHT_TRIGGER = 6;
+    public static final int START = 8;
     
     public static final double JOYSTICK_RANGE_MAX = 1.0;
-    public static final double JOYTICK_RANGE_MIN = -1.0;
-    public static final double JOYTICK_SCALE = .75;
-    public static final double JOYTICK_CURVE = 3;  // this is the exponent (such as square or cube)
+    public static final double JOYSTICK_RANGE_MIN = -1.0;
     public static final double JOYSTICK_DEADBAND_MAX = .1;
     public static final double JOYSTICK_DEADBAND_MIN = -.1;
     
+    public static double JOYSTICK_SCALE = .75;
+    public static double JOYSTICK_CURVE = 3;  // this is the exponent (such as square or cube)
     
     
     //                     ********** Wheels and Encoders and Distance Oh My **********

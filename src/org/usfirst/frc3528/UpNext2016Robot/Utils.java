@@ -13,10 +13,10 @@ public class Utils {
 		input = ( clip(input) );
 		
 		// scale the input value
-		double output = input * RobotMap.JOYTICK_SCALE;
+		double output = input * RobotMap.JOYSTICK_SCALE;
 		
 		// curve the input value
-		output = Math.pow( output, RobotMap.JOYTICK_CURVE );
+		output = Math.pow( output, RobotMap.JOYSTICK_CURVE );
 		
 		
 		return output;
@@ -35,8 +35,8 @@ public class Utils {
 		
 		if ( input > RobotMap.JOYSTICK_RANGE_MAX ) {
     		output = RobotMap.JOYSTICK_RANGE_MAX;
-    	} else if ( input < RobotMap.JOYTICK_RANGE_MIN ) {
-    		output = RobotMap.JOYTICK_RANGE_MIN;
+    	} else if ( input < RobotMap.JOYSTICK_RANGE_MIN ) {
+    		output = RobotMap.JOYSTICK_RANGE_MIN;
     	}
 		
 		return output;
