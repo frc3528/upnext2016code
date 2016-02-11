@@ -18,13 +18,13 @@ public class ResetArm extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	setTimeout(4);
-    	
+    	Robot.intakeArm.driveArm(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	Robot.intakeArm.driveArm(-1);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

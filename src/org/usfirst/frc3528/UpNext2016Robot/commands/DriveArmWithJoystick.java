@@ -35,7 +35,14 @@ public class DriveArmWithJoystick extends Command {
     	if (RobotMap.manualArmDrive) {
     		
     		double power = Robot.oi.controlStick.getRawAxis(5);
-    		Robot.intakeArm.driveArmWithJoystick(power);
+    		
+    		if (isArmIn) {
+    			if (power >= 0) {
+    				Robot.intakeArm.driveArmWithJoystick(power);
+    			}
+    		} else {
+    			Robot.intakeArm.driveArmWithJoystick(power);
+    		}
     		
     	}
     	
@@ -47,7 +54,7 @@ public class DriveArmWithJoystick extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
