@@ -36,8 +36,8 @@ public class DriveByFeetForward extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println("========Made it to the command========");
-    	startingLeftPos = Robot.driveTrain.frontLeftPos();
-    	startingRightPos = Robot.driveTrain.frontRightPos();
+    	startingLeftPos = Robot.driveTrain.leftPos();
+    	startingRightPos = Robot.driveTrain.rightPos();
     	
     	System.out.println("Left: " + startingLeftPos + " Right: " + startingRightPos);
     	
@@ -58,7 +58,7 @@ public class DriveByFeetForward extends Command {
     	//double leftPos = Robot.driveTrain.backLeftPos();
     	//double rightPos = Robot.driveTrain.backRightPos();
     	//error = leftPos - rightPos;
-    	System.out.println("Current Pos: " + Robot.driveTrain.frontRightPos() + " Expected: " + encoderCounts);
+    	System.out.println("Current Pos: " + Robot.driveTrain.rightPos() + " Expected: " + encoderCounts);
     	//if (error < -10 ) {
     		Robot.driveTrain.rawDrive(left, right);  // Make this apply slightly more power to one side.
     	//} else {								  // Figure out which side needs the addition.
@@ -75,7 +75,7 @@ public class DriveByFeetForward extends Command {
      
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.driveTrain.frontRightPos() >= encoderCounts || isTimedOut();
+    	return Robot.driveTrain.rightPos() >= encoderCounts || isTimedOut();
     	
     }
 

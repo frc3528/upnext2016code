@@ -75,8 +75,8 @@ public class DriveWithJoystick extends Command {
     		
     	}
     	
-    	frontLeftEncPos = Robot.driveTrain.frontLeftPos();
-    	frontRightEncPos = Robot.driveTrain.frontRightPos();
+    	frontLeftEncPos = Robot.driveTrain.leftPos();
+    	frontRightEncPos = Robot.driveTrain.rightPos();
     	
     	gyroAngle = Robot.driveTrain.getGyro();
     	SmartDashboard.putNumber("Gyro Angle", gyroAngle);

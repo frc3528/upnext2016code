@@ -68,23 +68,21 @@ public class DriveTrain extends Subsystem {
     	tal.enableBrakeMode(false);
     }
     
-    public double frontLeftPos() {
+    public double leftPos() {
 		return frontLeftMotor.getEncPosition();
 	}
 
 	
-	public double frontRightPos() {
+	public double rightPos() {
 		return frontRightMotor.getEncPosition() * -1;
 	}
-
 	
-	public double backLeftPos() {
-		return backLeftMotor.getEncPosition();
+	public void zeroLeftEncoder() {
+		zeroEncoder(frontLeftMotor);
 	}
 	
-	
-	public double backRightPos() {
-		return backRightMotor.getEncPosition()* -1;
+	public void zeroRightEncoder() {
+		zeroEncoder(frontRightMotor);
 	}
     
 }

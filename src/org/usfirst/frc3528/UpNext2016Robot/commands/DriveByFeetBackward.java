@@ -32,8 +32,8 @@ public class DriveByFeetBackward extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	
-    	startingLeftPos = Robot.driveTrain.backLeftPos();
-    	startingRightPos = Robot.driveTrain.backRightPos();
+    	startingLeftPos = Robot.driveTrain.leftPos();
+    	startingRightPos = Robot.driveTrain.rightPos();
     	
     	// calculate the number of encoderCounts to drive
         encoderCounts =  distance / RobotMap.INCHES_PER_COUNT;
@@ -47,8 +47,8 @@ public class DriveByFeetBackward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double leftPos = Robot.driveTrain.backLeftPos();
-    	double rightPos = Robot.driveTrain.backRightPos();
+    	double leftPos = Robot.driveTrain.leftPos();
+    	double rightPos = Robot.driveTrain.rightPos();
     	error = leftPos - rightPos;
     	
     	if (error < -10 ) {
@@ -67,7 +67,7 @@ public class DriveByFeetBackward extends Command {
      
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return Robot.driveTrain.backLeftPos() <= encoderCounts || isTimedOut();
+    	return Robot.driveTrain.leftPos() <= encoderCounts || isTimedOut();
 
     }
 
