@@ -84,5 +84,10 @@ public class DriveTrain extends Subsystem {
 	public void zeroRightEncoder() {
 		zeroEncoder(frontRightMotor);
 	}
+	
+	public void zeroEncoders() {
+		zeroLeftEncoder();
+		zeroRightEncoder();
+	}
     
 }
