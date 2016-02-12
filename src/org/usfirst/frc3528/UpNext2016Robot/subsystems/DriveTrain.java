@@ -43,6 +43,10 @@ public class DriveTrain extends Subsystem {
     	drive(power, power);
     }
     
+    public void rawDrive(double left, double right) {
+    	tankDrive.tankDrive(left, right);
+    }
+    
     public void initGyro() {
     	gyro.initGyro();
     	gyro.reset();

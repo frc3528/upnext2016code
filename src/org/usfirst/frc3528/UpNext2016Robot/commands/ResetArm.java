@@ -9,10 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ResetArm extends Command {
-
+	
+	boolean isArmIn;
+	
     public ResetArm() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.intakeArm);
+        this.setInterruptible(false);
     }
 
     // Called just before this Command runs the first time
@@ -23,15 +25,14 @@ public class ResetArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	
+    	isArmIn = Robot.intakeArm.armIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	//System.out.println("==========Reached isFinished Method==========");
     	System.out.println("isTimedOut: " + isTimedOut() + " ||| armIn: " + Robot.intakeArm.armIn());
-        return isTimedOut() || Robot.intakeArm.armIn();
+        return isTimedOut() || isArmIn;
     }
 
     // Called once after isFinished returns true

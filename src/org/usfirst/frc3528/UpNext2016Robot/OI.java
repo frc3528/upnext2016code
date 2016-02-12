@@ -1,6 +1,6 @@
-
 package org.usfirst.frc3528.UpNext2016Robot;
 
+import org.usfirst.frc3528.UpNext2016Robot.commands.DriveByFeetForward;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveIntakeMotor;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ResetArm;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ResetArmEncoder;
@@ -29,6 +29,7 @@ public class OI {
     public JoystickButton resetArmButton;
     public JoystickButton resetArmEncPos;
     public JoystickButton toggleDriveSensitivity;
+    public JoystickButton driveByFeetTest;
     public Joystick driveStick;
     //public Joystick leftStick;
     //public Joystick rightStick;
@@ -62,6 +63,9 @@ public class OI {
         
         toggleDriveSensitivity = new JoystickButton(driveStick, RobotMap.START);
         toggleDriveSensitivity.whenPressed(new ToggleSensitivity());
+        
+        driveByFeetTest = new JoystickButton(driveStick, RobotMap.DBF_TEST);
+        driveByFeetTest.whenPressed(new DriveByFeetForward(10, 15, -0.25, -0.3));
         
         //madCatsToggleDrive1 = new JoystickButton(leftStick, RobotMap.TRIGGER);
         //madCatsToggleDrive1.whenPressed(new ToggleDriveMode());

@@ -78,6 +78,8 @@ public class RobotMap {
     public static final int RIGHT_TRIGGER = 6;
     public static final int START = 8;
     
+    public static final int DBF_TEST = 6;
+    
     public static final double JOYSTICK_RANGE_MAX = 1.0;
     public static final double JOYSTICK_RANGE_MIN = -1.0;
     public static final double JOYSTICK_DEADBAND_MAX = .1;
