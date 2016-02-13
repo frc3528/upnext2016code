@@ -36,6 +36,9 @@ public class DriveByFeetForward extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println("========Made it to the command========");
+    	
+    	//RobotMap.driveTraintankDrive.setSafetyEnabled(false);
+    	
     	startingLeftPos = Robot.driveTrain.leftPos();
     	startingRightPos = Robot.driveTrain.rightPos();
     	
@@ -82,6 +85,7 @@ public class DriveByFeetForward extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.driveTrain.rawDrive(0, 0);
+    	RobotMap.driveTraintankDrive.setSafetyEnabled(false);
     	System.out.println("done");
     }
 

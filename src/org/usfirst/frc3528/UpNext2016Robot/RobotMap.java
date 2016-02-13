@@ -147,7 +147,7 @@ public class RobotMap {
         armIn = new DigitalInput(ARM_IN);
         armOut = new DigitalInput(ARM_OUT);
         
-        driveTraintankDrive.setSafetyEnabled(true);
+        driveTraintankDrive.setSafetyEnabled(false);
         driveTraintankDrive.setExpiration(0.1);
         driveTraintankDrive.setSensitivity(SENSITIVITY);
         driveTraintankDrive.setMaxOutput(1.0);
@@ -157,7 +157,7 @@ public class RobotMap {
         
         server = CameraServer.getInstance();
         server.setQuality(50);
-        server.startAutomaticCapture("cam0");
+        server.startAutomaticCapture("cam1");
         
     }
     
