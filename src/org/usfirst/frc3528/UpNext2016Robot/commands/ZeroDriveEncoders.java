@@ -17,17 +17,17 @@ public class ZeroDriveEncoders extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
-    	Robot.driveTrain.zeroEncoders();
+    	setTimeout(.075);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	setTimeout(.075);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+    	return Robot.driveTrain.leftPos() == 0 && Robot.driveTrain.rightPos() == 0 || isTimedOut();
     }
 
     // Called once after isFinished returns true
@@ -37,5 +37,6 @@ public class ZeroDriveEncoders extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	
     }
 }
