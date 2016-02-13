@@ -69,6 +69,7 @@ public class RobotMap {
     
     
     // Joystick Buttons
+    
     public static final int A = 1;
     public static final int B = 2;
     public static final int X = 3;
@@ -76,6 +77,7 @@ public class RobotMap {
     public static final int TRIGGER = 2;
     public static final int LEFT_TRIGGER = 5;
     public static final int RIGHT_TRIGGER = 6;
+    public static final int BACK = 7;
     public static final int START = 8;
     
     public static final int DBF_TEST = 6;
