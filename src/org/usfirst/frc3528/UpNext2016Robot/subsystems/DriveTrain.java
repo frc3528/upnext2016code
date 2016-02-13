@@ -1,6 +1,7 @@
 
 package org.usfirst.frc3528.UpNext2016Robot.subsystems;
 
+import org.usfirst.frc3528.UpNext2016Robot.Robot;
 import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 import org.usfirst.frc3528.UpNext2016Robot.Utils;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveWithJoystick;
@@ -9,6 +10,7 @@ import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -16,6 +18,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class DriveTrain extends Subsystem {
     
+	double frontLeftEncPos;
+	double frontRightEncPos;
+	
     CANTalon frontLeftMotor = RobotMap.driveTrainfrontLeftMotor;
     CANTalon frontRightMotor = RobotMap.driveTrainfrontRightMotor;
     CANTalon backLeftMotor = RobotMap.driveTrainbackLeftMotor;
@@ -71,7 +76,6 @@ public class DriveTrain extends Subsystem {
     public double leftPos() {
 		return frontLeftMotor.getEncPosition();
 	}
-
 	
 	public double rightPos() {
 		return frontRightMotor.getEncPosition() * -1;
@@ -88,6 +92,14 @@ public class DriveTrain extends Subsystem {
 	public void zeroEncoders() {
 		zeroLeftEncoder();
 		zeroRightEncoder();
+	}
+	
+	public void updateTelemetry() {
+		frontLeftEncPos = Robot.driveTrain.leftPos();
+    	frontRightEncPos = Robot.driveTrain.rightPos();
+		
+		SmartDashboard.putNumber("Left Encoder: ", frontLeftEncPos);
+    	SmartDashboard.putNumber("Right Encoder: ", frontRightEncPos);
 	}
     
 }

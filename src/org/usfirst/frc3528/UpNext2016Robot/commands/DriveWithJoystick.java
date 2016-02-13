@@ -12,10 +12,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class DriveWithJoystick extends Command {
 	
-	double frontLeftEncPos;
-	double frontRightEncPos;
-	double backLeftEncPos;
-	double backRightEncPos;
 	double gyroAngle;
 
     public DriveWithJoystick() {
@@ -73,17 +69,11 @@ public class DriveWithJoystick extends Command {
     		
     		//Robot.driveTrain.driveWithJoystick(left, right);
     		
+    		
     	}
     	
-    	frontLeftEncPos = Robot.driveTrain.leftPos();
-    	frontRightEncPos = Robot.driveTrain.rightPos();
-    	
     	gyroAngle = Robot.driveTrain.getGyro();
-    	SmartDashboard.putNumber("Gyro Angle", gyroAngle);
-    	SmartDashboard.putBoolean("In Single Joystick Mode: ", RobotMap.driveWithSingleJoystick);
-    	SmartDashboard.putNumber("Left Encoder: ", frontLeftEncPos);
-    	SmartDashboard.putNumber("Right Encoder: ", frontRightEncPos);
-    	
+    	SmartDashboard.putNumber("Left Encoder", Robot.driveTrain.leftPos());
     }
 
     // Make this return true when this Command no longer needs to run execute()
