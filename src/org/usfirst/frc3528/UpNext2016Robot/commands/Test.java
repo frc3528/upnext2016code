@@ -27,6 +27,6 @@ public class Test extends CommandGroup {
     	
     	
     	addSequential ( new ZeroDriveEncoders() );
-    	addSequential( new DriveByFeetForward(10, 20, -0.45, -0.5) );
+    	addSequential( new DriveByFeetForward(10, 20, -0.4, -0.4) );
     }
 }

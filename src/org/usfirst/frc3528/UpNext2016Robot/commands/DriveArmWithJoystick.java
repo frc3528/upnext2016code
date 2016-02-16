@@ -34,7 +34,7 @@ public class DriveArmWithJoystick extends Command {
     	
     	if (RobotMap.manualArmDrive) {
     		
-    		double power = Robot.oi.controlStick.getRawAxis(5);
+    		double power = Robot.oi.controlStick.getRawAxis(5) * 0.75;
     		
     		if (isArmIn) {
     			if (power >= 0) {
