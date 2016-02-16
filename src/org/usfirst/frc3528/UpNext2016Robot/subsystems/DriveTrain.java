@@ -6,6 +6,7 @@ import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 import org.usfirst.frc3528.UpNext2016Robot.Utils;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveWithJoystick;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -24,8 +25,8 @@ public class DriveTrain extends Subsystem {
     CANTalon backRightMotor = RobotMap.driveTrainbackRightMotor;
     RobotDrive tankDrive = RobotMap.driveTraintankDrive;
     
-    AnalogGyro gyro = RobotMap.gyro;
-    
+    double gyroAngle;
+    ADXRS450_Gyro gyro = RobotMap.gyro;
     
     public void initDefaultCommand() {
     	
@@ -49,15 +50,7 @@ public class DriveTrain extends Subsystem {
     	tankDrive.tankDrive(left, right);
     }
     
-    public void initGyro() {
-    	gyro.initGyro();
-    	gyro.reset();
-    }
-    
-    public double getGyro() {
-    	return gyro.getAngle();
-    }
-    
+   
     public void zeroEncoder(CANTalon tal) {
     	tal.setPosition(0);
     }

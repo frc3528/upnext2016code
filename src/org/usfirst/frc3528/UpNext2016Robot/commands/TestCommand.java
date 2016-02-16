@@ -13,7 +13,7 @@ public class TestCommand extends Command {
 	int targetPos = 500;
 	
     public TestCommand() {
-        // Use requires() here to declare subsystem dependencies
+    	// Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
@@ -22,10 +22,13 @@ public class TestCommand extends Command {
     	armPos = RobotMap.armEncoder.get();
     	if (armPos > targetPos) {
     		System.out.println("armPos > targetPos");
+    		System.out.println(armPos);
     	} else if (armPos < targetPos){
     		System.out.println("armPos < targetPos");
+    		System.out.println(armPos);
     	} else {
     		System.out.println("armPos = targetPos");
+    		System.out.println(armPos);
     	}
     }
 

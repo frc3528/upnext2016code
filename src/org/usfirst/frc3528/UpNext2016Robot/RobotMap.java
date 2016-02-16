@@ -1,5 +1,6 @@
 package org.usfirst.frc3528.UpNext2016Robot;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -23,7 +24,7 @@ public class RobotMap {
     public static CANTalon driveTrainfrontRightMotor;
     public static CANTalon driveTrainbackLeftMotor;
     public static CANTalon driveTrainbackRightMotor;
-    public static AnalogGyro gyro;
+    public static ADXRS450_Gyro gyro;
     
     public static RobotDrive driveTraintankDrive;
     public static boolean driveWithSingleJoystick = false;
@@ -138,7 +139,7 @@ public class RobotMap {
         driveTraintankDrive = new RobotDrive(driveTrainfrontLeftMotor, driveTrainbackLeftMotor,
               driveTrainfrontRightMotor, driveTrainbackRightMotor);
         
-        gyro = new AnalogGyro(GYRO);
+        gyro = new ADXRS450_Gyro();
         
         
         armDriveMotor = new VictorSP(ARM_MOTOR_VICTOR);
