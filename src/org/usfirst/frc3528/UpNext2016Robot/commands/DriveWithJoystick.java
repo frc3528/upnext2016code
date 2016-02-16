@@ -74,7 +74,7 @@ public class DriveWithJoystick extends Command {
     	
     	gyroAngle = Robot.driveTrain.getGyro();
     	SmartDashboard.putNumber("Gyro", gyroAngle);
-    	//SmartDashboard.putNumber("Left Encoder", Robot.driveTrain.leftPos());
+    	SmartDashboard.putNumber("Left Encoder", Robot.driveTrain.leftPos());
     }
 
     // Make this return true when this Command no longer needs to run execute()
