@@ -25,12 +25,12 @@ public class ResetArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//System.out.println("Arm Encoder Pos: " + Robot.intakeArm.getArmPos());
     	isArmIn = Robot.intakeArm.armIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	//System.out.println("==========Reached isFinished Method==========");
     	System.out.println("isTimedOut: " + isTimedOut() + " ||| armIn: " + Robot.intakeArm.armIn());
         return isTimedOut() || isArmIn;
     }
@@ -39,7 +39,10 @@ public class ResetArm extends Command {
     protected void end() {
     	System.out.println("==========Reached end Method==========");
     	Robot.intakeArm.driveArm(0);
+    	System.out.println("Encoder Before Reset: " + Robot.intakeArm.getArmPos());
     	Robot.intakeArm.zeroArmEncoder();
+    	System.out.println("Encoder After Reset: " + Robot.intakeArm.getArmPos());
+    	
     }
 
     // Called when another command which requires one or more of the same

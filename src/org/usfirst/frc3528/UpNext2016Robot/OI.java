@@ -1,12 +1,14 @@
 package org.usfirst.frc3528.UpNext2016Robot;
 
+import org.usfirst.frc3528.UpNext2016Robot.commands.DriveByEncoderCounts;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveByFeetForward;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveIntakeMotor;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ResetArm;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ResetArmEncoder;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ReverseDriveControl;
 import org.usfirst.frc3528.UpNext2016Robot.commands.Test;
-import org.usfirst.frc3528.UpNext2016Robot.commands.TestCommand;
+import org.usfirst.frc3528.UpNext2016Robot.commands.MoveArmToPosition;
+import org.usfirst.frc3528.UpNext2016Robot.commands.PortcullisJTTW;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ToggleDriveMode;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ToggleSensitivity;
 
@@ -68,10 +70,12 @@ public class OI {
         toggleDriveSensitivity.whenPressed(new ToggleSensitivity());
         
         driveByFeetTest = new JoystickButton(driveStick, RobotMap.DBF_TEST);
-        driveByFeetTest.whenPressed( new Test() ) ;
+        //driveByFeetTest.whenPressed( new Test() ) ;
+        //driveByFeetTest.whenPressed(new DriveByEncoderCounts(650, 5, -0.45));
+        driveByFeetTest.whenPressed(new PortcullisJTTW());
         
         test = new JoystickButton(controlStick, RobotMap.BACK);
-        test.whenPressed(new TestCommand());
+        test.whenPressed(new MoveArmToPosition(0.75, 10, 1400));
         
         //madCatsToggleDrive1 = new JoystickButton(leftStick, RobotMap.TRIGGER);
         //madCatsToggleDrive1.whenPressed(new ToggleDriveMode());
