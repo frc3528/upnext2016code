@@ -26,8 +26,8 @@ public class ChevyJTTW extends CommandGroup {
         // arm.
     	
     	addSequential ( new MoveArmToPosition(1, 5, 1600) );
-    	addParallel ( new DriveByEncoderCounts(2600, 5, -0.53) ); // 900 + the 1700
-    	//addParallel ( new DriveByEncoderCounts(1700, 7, -0.53) );
+    	addSequential ( new DriveByEncoderCounts(900, 5, -0.53) );
+    	addParallel ( new DriveByEncoderCounts(1700, 7, -0.53) );
     	addSequential ( new MoveArmToPosition(0.75, 6, 1400) );
     	
     }
