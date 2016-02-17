@@ -1,5 +1,6 @@
 package org.usfirst.frc3528.UpNext2016Robot;
 
+import org.usfirst.frc3528.UpNext2016Robot.commands.ChevyJTTW;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveByEncoderCounts;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveByFeetForward;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveIntakeMotor;
@@ -33,8 +34,9 @@ public class OI {
     public JoystickButton resetArmButton;
     public JoystickButton resetArmEncPos;
     public JoystickButton toggleDriveSensitivity;
-    public JoystickButton driveByFeetTest;
+    public JoystickButton driveRightTrigger;
     public JoystickButton test;
+    public JoystickButton driveLeftTrigger;
     public Joystick driveStick;
     //public Joystick leftStick;
     //public Joystick rightStick;
@@ -69,13 +71,14 @@ public class OI {
         toggleDriveSensitivity = new JoystickButton(driveStick, RobotMap.START);
         toggleDriveSensitivity.whenPressed(new ToggleSensitivity());
         
-        driveByFeetTest = new JoystickButton(driveStick, RobotMap.DBF_TEST);
-        //driveByFeetTest.whenPressed( new Test() ) ;
-        //driveByFeetTest.whenPressed(new DriveByEncoderCounts(650, 5, -0.45));
-        driveByFeetTest.whenPressed(new PortcullisJTTW());
+        driveRightTrigger = new JoystickButton(driveStick, RobotMap.RIGHT_TRIGGER);
+        driveRightTrigger.whenPressed(new PortcullisJTTW());
         
         test = new JoystickButton(controlStick, RobotMap.BACK);
         test.whenPressed(new MoveArmToPosition(0.75, 10, 1400));
+        
+        driveLeftTrigger = new JoystickButton(driveStick, RobotMap.LEFT_TRIGGER);
+        driveLeftTrigger.whenPressed(new ChevyJTTW());
         
         //madCatsToggleDrive1 = new JoystickButton(leftStick, RobotMap.TRIGGER);
         //madCatsToggleDrive1.whenPressed(new ToggleDriveMode());

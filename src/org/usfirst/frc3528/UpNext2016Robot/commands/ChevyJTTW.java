@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class PortcullisJTTW extends CommandGroup {
+public class ChevyJTTW extends CommandGroup {
     
-    public  PortcullisJTTW() {
+    public  ChevyJTTW() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -24,11 +24,11 @@ public class PortcullisJTTW extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential ( new MoveArmToPosition(1, 5, 1720) );
-    	addSequential ( new DriveByEncoderCounts(650, 5, -0.45) );
-    	addParallel ( new MoveArmToPosition(1, 6, 500) );
-    	addSequential ( new DriveByEncoderCounts(800, 8, -0.37) );
-    	addSequential ( new DriveByEncoderCounts(1100, 6, -0.6) );
+    	
+    	addSequential ( new MoveArmToPosition(1, 5, 1600) );
+    	addParallel ( new DriveByEncoderCounts(2600, 5, -0.53) ); // 900 + the 1700
+    	//addParallel ( new DriveByEncoderCounts(1700, 7, -0.53) );
+    	addSequential ( new MoveArmToPosition(0.75, 6, 1400) );
     	
     }
 }
