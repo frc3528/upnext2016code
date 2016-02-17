@@ -1,14 +1,10 @@
 package org.usfirst.frc3528.UpNext2016Robot;
 
 import org.usfirst.frc3528.UpNext2016Robot.commands.ChevyJTTW;
-import org.usfirst.frc3528.UpNext2016Robot.commands.DriveByEncoderCounts;
-import org.usfirst.frc3528.UpNext2016Robot.commands.DriveByFeetForward;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveIntakeMotor;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ResetArm;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ResetArmEncoder;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ReverseDriveControl;
-import org.usfirst.frc3528.UpNext2016Robot.commands.Test;
-import org.usfirst.frc3528.UpNext2016Robot.commands.MoveArmToPosition;
 import org.usfirst.frc3528.UpNext2016Robot.commands.PortcullisJTTW;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ToggleDriveMode;
 import org.usfirst.frc3528.UpNext2016Robot.commands.ToggleSensitivity;
@@ -22,9 +18,15 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	// Joysticks
+	
+    public Joystick driveStick;
+    public Joystick controlStick;
+	
     
-    public JoystickButton lowGearButton;
-    public JoystickButton highGearButton;
+    // Joystick Buttons
+    
     public JoystickButton driveModeToggleButton;
     public JoystickButton madCatsToggleDrive1;
     public JoystickButton madCatsToggleDrive2;
@@ -37,18 +39,17 @@ public class OI {
     public JoystickButton driveRightTrigger;
     public JoystickButton test;
     public JoystickButton driveLeftTrigger;
-    public Joystick driveStick;
-    //public Joystick leftStick;
-    //public Joystick rightStick;
-    public Joystick controlStick;
     
     
     public OI() {
         
+    	// Constructing joysticks
+    	
         driveStick = new Joystick(0);
-        //leftStick = new Joystick(1);
-        //rightStick = new Joystick(2);
         controlStick = new Joystick(3);
+        
+        
+        // Assigning buttons to commands
         
         controlLeftTrigger = new JoystickButton(controlStick, RobotMap.LEFT_TRIGGER);
         controlLeftTrigger.whenPressed(new DriveIntakeMotor());
@@ -65,8 +66,15 @@ public class OI {
         resetArmButton = new JoystickButton(controlStick, RobotMap.A);
         resetArmButton.whenPressed(new ResetArm());
         
+        
+        
+        // Might want to remove this button entirely. We don't want to reset the encoder anywhere else.
+        //
         resetArmEncPos = new JoystickButton(controlStick, RobotMap.B);
         resetArmEncPos.whenPressed(new ResetArmEncoder());
+        //
+        //
+        
         
         toggleDriveSensitivity = new JoystickButton(driveStick, RobotMap.START);
         toggleDriveSensitivity.whenPressed(new ToggleSensitivity());
@@ -74,25 +82,10 @@ public class OI {
         driveRightTrigger = new JoystickButton(driveStick, RobotMap.RIGHT_TRIGGER);
         driveRightTrigger.whenPressed(new PortcullisJTTW());
         
-        test = new JoystickButton(controlStick, RobotMap.BACK);
-        test.whenPressed(new MoveArmToPosition(0.75, 10, 1400));
-        
         driveLeftTrigger = new JoystickButton(driveStick, RobotMap.LEFT_TRIGGER);
         driveLeftTrigger.whenPressed(new ChevyJTTW());
         
-        //madCatsToggleDrive1 = new JoystickButton(leftStick, RobotMap.TRIGGER);
-        //madCatsToggleDrive1.whenPressed(new ToggleDriveMode());
-        
-        //madCatsToggleDrive2 = new JoystickButton(rightStick, RobotMap.TRIGGER);
-        //madCatsToggleDrive2.whenPressed(new ToggleDriveMode());
-        
     }
-    
-    
-    //public Joystick getDriveStick() {
-    //    return driveStick;
-    //}
-    
     
 }
 

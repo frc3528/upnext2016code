@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class DriveArmWithJoystick extends Command {
 	
+	// Encoder position and Hall effect sensor values (Arm at highest and lowest position)
 	double armEncoderPos;
 	boolean isArmIn;
 	boolean isArmOut;
@@ -28,14 +29,19 @@ public class DriveArmWithJoystick extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
+    	// Refreshing values of the encoder and sensors
     	armEncoderPos = Robot.intakeArm.getArmPos();
     	isArmIn = Robot.intakeArm.armIn();
     	isArmOut = Robot.intakeArm.armOut();
     	
+    	
+    	// Checking if the manual drive control is enabled
     	if (RobotMap.manualArmDrive) {
     		
+    		// Getting joystick value and cutting it down by 25%
     		double power = Robot.oi.controlStick.getRawAxis(5) * 0.75;
     		
+    		//  If arm is at the highest position, prevent driving the arm any higher
     		if (isArmIn) {
     			if (power >= 0) {
     				Robot.intakeArm.driveArmWithJoystick(power);
@@ -48,6 +54,7 @@ public class DriveArmWithJoystick extends Command {
     		
     	}
     	
+    	// Put values on the dashboard
     	SmartDashboard.putNumber("Arm Encoder", armEncoderPos);
     	SmartDashboard.putBoolean("Arm In: ", isArmIn);
     	SmartDashboard.putBoolean("Arm Out: ", isArmOut);

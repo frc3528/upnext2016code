@@ -1,4 +1,3 @@
-
 package org.usfirst.frc3528.UpNext2016Robot;
 
 import org.usfirst.frc3528.UpNext2016Robot.commands.*;
@@ -11,15 +10,10 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
- */
-public class Robot extends IterativeRobot {
 
+public class Robot extends IterativeRobot {
+	
+	// Setting up an Autonomous Mode chooser
     Command autonomousCommand;
     SendableChooser autoChooser;
 
@@ -28,28 +22,22 @@ public class Robot extends IterativeRobot {
     public static IntakeArm intakeArm;
     public static BallGatherer ballGatherer;
 
-    /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     */
+    
+    // Called when the robot is first started up
     public void robotInit() {
     RobotMap.init();
     	
     	System.out.println("==== Insert Robot Name Here (2016) ====");
         
+    	
         driveTrain = new DriveTrain();
-
         intakeArm = new IntakeArm();
-        
         ballGatherer = new BallGatherer();
-        
-        
-        
         oi = new OI();
         
-
-
-
+        
+        // ********** Finish setting up autonomous chooser **********
+        
         autonomousCommand = new AutonomousCommand();
         
         autoChooser = new SendableChooser();
@@ -57,47 +45,42 @@ public class Robot extends IterativeRobot {
         //autoChooser.addObject("Add name here", new CommandHere());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
+        // ********** Finish setting up autonomous chooser **********
         
     }
-
-    /**
-     * This function is called when the disabled button is hit.
-     * You can use it to reset subsystems before shutting down.
-     */
+    
+    
+    // Called first when robot is disabled
     public void disabledInit(){
 
     }
-
+    
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
     }
-
+    
     public void autonomousInit() {
        autonomousCommand = (Command) autoChooser.getSelected();
        autonomousCommand.start();
     }
-
-    /**
-     * This function is called periodically during autonomous
-     */
+    
+    
+    // Called periodically during autonomous
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
     }
-
+    
+    // Called when teleop is first called
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
-    /**
-     * This function is called periodically during operator control
-     */
+    // Called periodically during teleop
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
 
-    /**
-     * This function is called periodically during test mode
-     */
+    // Called periodically during test mode
     public void testPeriodic() {
         LiveWindow.run();
     }

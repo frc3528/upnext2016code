@@ -22,6 +22,8 @@ public class DriveIntakeMotor extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
+    	// If manual drive mode is enabled, apply power to the intake wheel motor on trigger press
     	if (RobotMap.manualArmDrive) {
     		if (Robot.oi.controlLeftTrigger.get()) {
     			Robot.ballGatherer.driveIntakeWithTriggers(0.5);
@@ -35,6 +37,7 @@ public class DriveIntakeMotor extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	// Returns true when both triggers are released
         return !Robot.oi.controlLeftTrigger.get() && !Robot.oi.controlRightTrigger.get();
     }
 
