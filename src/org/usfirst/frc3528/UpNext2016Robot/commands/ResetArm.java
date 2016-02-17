@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ResetArm extends Command {
 	
+	// Stores whether the arm is in or not.
 	boolean isArmIn;
 	
     public ResetArm() {
@@ -19,29 +20,29 @@ public class ResetArm extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	// Setting timeout, and applying power to the motor.
     	setTimeout(4);
     	Robot.intakeArm.driveArm(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//System.out.println("Arm Encoder Pos: " + Robot.intakeArm.getArmPos());
+    	// Refreshing the reading of the Hall Effect sensor at the highest position.
     	isArmIn = Robot.intakeArm.armIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	// Returns true when the Hall Effect sensor reads true, or the timeout is reached.
     	System.out.println("isTimedOut: " + isTimedOut() + " ||| armIn: " + Robot.intakeArm.armIn());
         return isTimedOut() || isArmIn;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	System.out.println("==========Reached end Method==========");
+    	// Cutting power to the motor, and reseting the encoder to 0.
     	Robot.intakeArm.driveArm(0);
-    	System.out.println("Encoder Before Reset: " + Robot.intakeArm.getArmPos());
     	Robot.intakeArm.zeroArmEncoder();
-    	System.out.println("Encoder After Reset: " + Robot.intakeArm.getArmPos());
     	
     }
 

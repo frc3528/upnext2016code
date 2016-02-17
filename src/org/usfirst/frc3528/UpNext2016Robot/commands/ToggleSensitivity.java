@@ -10,17 +10,15 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ToggleSensitivity extends Command {
 
     public ToggleSensitivity() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
+    	// Toggles boolean storing whether the robot is in "high gear" or not.
     	RobotMap.isHighGear = !RobotMap.isHighGear;
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	// Switches the values used for ramping code
     	if (RobotMap.isHighGear) {
     		RobotMap.JOYSTICK_SCALE = 1;
     		RobotMap.JOYSTICK_CURVE = 1;
@@ -30,17 +28,13 @@ public class ToggleSensitivity extends Command {
     	}
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return true;
     }
 
-    // Called once after isFinished returns true
     protected void end() {
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 }

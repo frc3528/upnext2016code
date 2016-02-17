@@ -48,7 +48,7 @@ public class DriveTrain extends Subsystem {
     	tankDrive.tankDrive(Utils.transform(left), Utils.transform(right), false);
     }
     
-    // Applies the same power input to both motor sets
+    // Applies the same power input to both motor sets. (With ramping functions)
     public void drive(double power) {
     	drive(power, power);
     }

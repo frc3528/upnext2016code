@@ -9,14 +9,16 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class MoveArmToPosition extends Command {
-
+	
+	// Initializing variables
 	double armPos;
 	double targetPos;
 	double timeout;
 	double power;
 	double encoderCounts;
 	boolean aboveTarget;
-
+	
+	// power (-1 to 1), timeout (in seconds), targetPos (Encoder count to move the arm to).
     public MoveArmToPosition(double power, double timeout, double targetPos) {
     	
     	requires(Robot.intakeArm);
@@ -31,8 +33,11 @@ public class MoveArmToPosition extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	
+    	// Getting the current position of the arm
     	armPos = RobotMap.armEncoder.get();
     	
+    	// Checking whether the arm is above or below the target position
+    	// and applying the necessary motor power to move towards it.
     	if (armPos > targetPos) {
     		
     		System.out.println("armPos > targetPos");
@@ -61,6 +66,11 @@ public class MoveArmToPosition extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	/*
+    	 * First, checks if we started above or below the target.
+    	 * Returns true when the arm position meets, or is above/below the target
+    	 * based on where we started, or when the the timeout is reached
+    	 */
         if (aboveTarget) {
         	return Robot.intakeArm.getArmPos() >= targetPos || isTimedOut();
         } else {
@@ -70,6 +80,7 @@ public class MoveArmToPosition extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	// Stops the arm
     	Robot.intakeArm.driveArm(0);
     }
 
