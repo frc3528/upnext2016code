@@ -66,16 +66,6 @@ public class OI {
         resetArmButton = new JoystickButton(controlStick, RobotMap.A);
         resetArmButton.whenPressed(new ResetArm());
         
-        
-        
-        // Might want to remove this button entirely. We don't want to reset the encoder anywhere else.
-        //
-        resetArmEncPos = new JoystickButton(controlStick, RobotMap.B);
-        resetArmEncPos.whenPressed(new ResetArmEncoder());
-        //
-        //
-        
-        
         toggleDriveSensitivity = new JoystickButton(driveStick, RobotMap.START);
         toggleDriveSensitivity.whenPressed(new ToggleSensitivity());
         

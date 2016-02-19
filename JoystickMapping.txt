@@ -1,0 +1,22 @@
+========== DRIVE STICK ==========
+		
+		
+  Left Stick: Drive left wheels
+ Right Stick: Drive right wheels
+		
+           X: Reverse drive direction
+           Y: Toggle Single Drivestick mode
+Right Bumper: Portcullis Automation
+ Left Bumper: Cheval De Frise Automation
+       Start: Toggle Ramping code (Smoothes drive. May need to turn off for crossing the Moat)
+       
+       
+       
+========== CONTROL STICK ==========
+
+ Right Stick: Move arm Up/Down (Up = Into the robot | Down = Towards the floor)
+
+           A: Reset arm to highest position (Resets encoder)
+          
+ Left Bumper: Wheels in  (?) need to check
+Right Bumper: Wheels out (?) need to check
