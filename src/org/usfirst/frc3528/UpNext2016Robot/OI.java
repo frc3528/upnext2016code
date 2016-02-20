@@ -46,7 +46,7 @@ public class OI {
     	// Constructing joysticks
     	
         driveStick = new Joystick(0);
-        controlStick = new Joystick(3);
+        controlStick = new Joystick(1);
         
         
         // Assigning buttons to commands
