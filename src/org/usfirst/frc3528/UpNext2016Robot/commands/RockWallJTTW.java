@@ -7,6 +7,6 @@ public class RockWallJTTW extends CommandGroup {
     
     public  RockWallJTTW() {
     	// Only requires driving straight forward for now. May change later.
-        addSequential( new DriveByEncoderCounts(3000, 6, 0.8) );
+        addSequential( new DriveByEncoderCounts(1000, 6, 0.8) );
     }
 }

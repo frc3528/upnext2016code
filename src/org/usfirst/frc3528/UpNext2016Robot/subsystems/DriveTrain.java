@@ -108,6 +108,7 @@ public class DriveTrain extends Subsystem {
 		
 		SmartDashboard.putNumber("Left Encoder: ", frontLeftEncPos);
     	SmartDashboard.putNumber("Right Encoder: ", frontRightEncPos);
+    	SmartDashboard.putNumber("Drive Mode: ", RobotMap.driveMode);
 	}
     
 }

@@ -23,6 +23,7 @@ public class OI {
 	
     public Joystick driveStick;
     public Joystick controlStick;
+    public Joystick testStick;
 	
     
     // Joystick Buttons
@@ -47,6 +48,7 @@ public class OI {
     	
         driveStick = new Joystick(0);
         controlStick = new Joystick(1);
+        testStick = new Joystick(5);
         
         
         // Assigning buttons to commands

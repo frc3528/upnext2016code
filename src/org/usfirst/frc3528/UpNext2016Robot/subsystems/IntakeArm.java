@@ -1,5 +1,6 @@
 package org.usfirst.frc3528.UpNext2016Robot.subsystems;
 
+import org.usfirst.frc3528.UpNext2016Robot.Robot;
 import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 import org.usfirst.frc3528.UpNext2016Robot.commands.DriveArmWithJoystick;
 
@@ -7,10 +8,16 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 public class IntakeArm extends Subsystem {
     
+    double armEncoderPos;
+	boolean isArmIn;
+	boolean isArmOut;
+	
+	
 	// Constructing VictorSP Speed Controller and Encoder.
     VictorSP armMotor = RobotMap.armDriveMotor;
     Encoder armEncoder = RobotMap.armEncoder;
@@ -18,6 +25,7 @@ public class IntakeArm extends Subsystem {
     // Constructing Hall Effect sensors to detect the high and low positions of the arm.
     DigitalInput armIn = RobotMap.armIn;
     DigitalInput armOut = RobotMap.armOut;
+    
 	
     public void initDefaultCommand() {
     	
@@ -53,6 +61,17 @@ public class IntakeArm extends Subsystem {
     // Returns the value of the Hall Effect sensor marking the Low position
     public boolean armOut() {
     	return !armOut.get();
+    }
+    
+    // Refreshes SmartDashboard data for the arm.
+    public void updateArmTelemetry() {
+    	armEncoderPos = Robot.intakeArm.getArmPos();
+    	isArmIn = Robot.intakeArm.armIn();
+    	isArmOut = Robot.intakeArm.armOut();
+    	
+    	SmartDashboard.putNumber("Arm Encoder", armEncoderPos);
+    	SmartDashboard.putBoolean("Arm In: ", isArmIn);
+    	SmartDashboard.putBoolean("Arm Out: ", isArmOut);
     }
     
 }

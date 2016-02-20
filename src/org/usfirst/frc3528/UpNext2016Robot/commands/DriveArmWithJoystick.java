@@ -4,7 +4,6 @@ import org.usfirst.frc3528.UpNext2016Robot.Robot;
 import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -54,10 +53,7 @@ public class DriveArmWithJoystick extends Command {
     		
     	}
     	
-    	// Put values on the dashboard
-    	SmartDashboard.putNumber("Arm Encoder", armEncoderPos);
-    	SmartDashboard.putBoolean("Arm In: ", isArmIn);
-    	SmartDashboard.putBoolean("Arm Out: ", isArmOut);
+    	Robot.intakeArm.updateArmTelemetry();
     	
     }
 
