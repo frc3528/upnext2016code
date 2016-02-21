@@ -16,7 +16,8 @@ public class Utils {
 		double output = input * RobotMap.JOYSTICK_SCALE;
 		
 		// curve the input value
-		output = Math.pow( output, RobotMap.JOYSTICK_CURVE );
+		double sign = Math.signum(input);
+		output = Math.pow( output, RobotMap.JOYSTICK_CURVE ) * sign;
 		
 		
 		return output;
