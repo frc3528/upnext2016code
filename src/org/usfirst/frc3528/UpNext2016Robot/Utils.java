@@ -17,7 +17,12 @@ public class Utils {
 		
 		// curve the input value
 		double sign = Math.signum(input);
-		output = Math.pow( output, RobotMap.JOYSTICK_CURVE ) * sign;
+		output = Math.pow( output, RobotMap.JOYSTICK_CURVE );
+		
+		// fix the negative values if needed for even exponents
+		if ( RobotMap.JOYSTICK_CURVE % 2 == 0 ) {
+			output = output * sign;
+		}
 		
 		
 		return output;
