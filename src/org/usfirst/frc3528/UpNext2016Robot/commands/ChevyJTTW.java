@@ -10,9 +10,9 @@ public class ChevyJTTW extends CommandGroup {
     public  ChevyJTTW() {
     	
     	addSequential ( new MoveArmToPosition(1, 5, 1600) );
-    	addSequential ( new DriveByEncoderCounts(400, 5, -0.55) );
-    	addParallel ( new DriveByEncoderCounts(700, 7, -0.55) );
-    	addSequential ( new MoveArmToPosition(0.75, 6, 1300) );
+    	addSequential ( new DriveByEncoderCounts(1400, 5, -0.50) );
+    	addParallel ( new DriveByEncoderCounts(1200, 7, -0.50) );
+    	addSequential ( new MoveArmToPosition(1, 5, 400) );
     	
     }
 }

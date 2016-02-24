@@ -38,11 +38,17 @@ public class DriveArmWithJoystick extends Command {
     	if (RobotMap.manualArmDrive) {
     		
     		// Getting joystick value and cutting it down by 25%
-    		double power = Robot.oi.controlStick.getRawAxis(5) * 0.75;
+    		double power = Robot.oi.controlStick.getRawAxis(5);
     		
     		//  If arm is at the highest position, prevent driving the arm any higher
     		if (isArmIn) {
     			if (power >= 0) {
+    				Robot.intakeArm.driveArmWithJoystick(power);
+    			} else {
+    				Robot.intakeArm.driveArmWithJoystick(0);
+    			}
+    		} else if (isArmOut) {
+    			if (power <=0) {
     				Robot.intakeArm.driveArmWithJoystick(power);
     			} else {
     				Robot.intakeArm.driveArmWithJoystick(0);

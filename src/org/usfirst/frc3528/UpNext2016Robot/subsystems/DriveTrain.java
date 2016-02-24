@@ -41,6 +41,8 @@ public class DriveTrain extends Subsystem {
     // Called from DriveWithJoystick command to pass in joystick values
     public void driveWithJoystick(double left, double right) {
     	this.drive( left, right );
+    	SmartDashboard.putNumber("Left Value: ", left);
+    	SmartDashboard.putNumber("Right Value: ", right);
     }
     
     // Applies power to the motors with ramping functions

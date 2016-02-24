@@ -63,6 +63,10 @@ public class IntakeArm extends Subsystem {
     	return !armOut.get();
     }
     
+    public void setEncoderPosition(double position) {
+    	
+    }
+    
     // Refreshes SmartDashboard data for the arm.
     public void updateArmTelemetry() {
     	armEncoderPos = Robot.intakeArm.getArmPos();
