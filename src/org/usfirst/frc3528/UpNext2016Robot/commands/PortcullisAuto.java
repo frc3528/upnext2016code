@@ -8,7 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class PortcullisAuto extends CommandGroup {
     
     public  PortcullisAuto() {
-    	addSequential(new DriveByEncoderCounts(701, 4, .4));
-    	addSequential(new PortcullisJTTW());
+    	addSequential( new BallOnTopAuto() );
+    	addSequential( new DriveByEncoderCounts(2200, 4, -.5) );
+    	addSequential( new PortcullisJTTW() );
+    	addSequential( new DriveByEncoderCounts(700, 2, -.5) );
     }
 }

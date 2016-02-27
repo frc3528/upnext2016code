@@ -22,7 +22,7 @@ public class ToggleSensitivity extends Command {
     	} else if (RobotMap.driveMode == 1) {
     		RobotMap.driveMode = 2;
     		RobotMap.JOYSTICK_SCALE = 1; // Originally ".75"
-    		RobotMap.JOYSTICK_CURVE = 1;   // Originally "3"
+    		RobotMap.JOYSTICK_CURVE = 2;   // Originally "3"
     	} else if (RobotMap.driveMode == 2) {
     		RobotMap.driveMode = 0;
     		RobotMap.JOYSTICK_SCALE = .75;

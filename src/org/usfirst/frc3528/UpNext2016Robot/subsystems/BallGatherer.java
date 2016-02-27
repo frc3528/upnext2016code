@@ -22,5 +22,9 @@ public class BallGatherer extends Subsystem {
     public void driveIntakeWithTriggers(double power) {
     	intakeMotor.set(power);
     }
+    
+    public void driveIntakeFromCommand(double power) {
+    	intakeMotor.set(power);
+    }
 }
 

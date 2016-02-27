@@ -1,53 +1,42 @@
 package org.usfirst.frc3528.UpNext2016Robot.commands;
 
 import org.usfirst.frc3528.UpNext2016Robot.Robot;
-import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveIntakeMotor extends Command {
-	
+public class AutomateIntakeMotor extends Command {
+
 	double power;
 	double timeout;
 	
-    public DriveIntakeMotor() {
-    	
-    	requires(Robot.ballGatherer);
-    	
+    public AutomateIntakeMotor(double power, double timeout) {
+        requires(Robot.ballGatherer);
+        
+        this.power = power;
+        this.timeout = timeout;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	setTimeout(timeout);
+    	Robot.ballGatherer.driveIntakeFromCommand(power);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	// If manual drive mode is enabled, apply power to the intake wheel motor on trigger press
-    	if (RobotMap.manualArmDrive) {
-    		if (Robot.oi.controlLeftTrigger.get()) {
-    			Robot.ballGatherer.driveIntakeWithTriggers(0.5);
-    		}
-    		
-    		if (Robot.oi.controlRightTrigger.get()) {
-    			Robot.ballGatherer.driveIntakeWithTriggers(-1);
-    		}
-    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	// Returns true when both triggers are released
-        return !Robot.oi.controlLeftTrigger.get() && !Robot.oi.controlRightTrigger.get();
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.ballGatherer.driveIntakeWithTriggers(0);
+    	Robot.ballGatherer.driveIntakeFromCommand(0);
     }
 
     // Called when another command which requires one or more of the same
