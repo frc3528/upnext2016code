@@ -34,7 +34,6 @@ public class ResetArm extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	// Returns true when the Hall Effect sensor reads true, or the timeout is reached.
-    	System.out.println("isTimedOut: " + isTimedOut() + " ||| armIn: " + Robot.intakeArm.armIn());
         return isTimedOut() || isArmIn;
     }
 
