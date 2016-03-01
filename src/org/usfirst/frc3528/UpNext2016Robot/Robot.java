@@ -46,6 +46,7 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("Rock Wall Auto", new RockWallAuto());
         autoChooser.addObject("Cheval Auto", new ChevyAuto());
         autoChooser.addObject("Portcullis Auto", new PortcullisAuto());
+        autoChooser.addObject("Drive to defense", new DriveToDefenseAuto());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
         // ********** Finish setting up autonomous chooser **********
