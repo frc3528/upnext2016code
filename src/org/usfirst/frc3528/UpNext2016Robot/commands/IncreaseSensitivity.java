@@ -4,6 +4,7 @@ import org.usfirst.frc3528.UpNext2016Robot.Robot;
 import org.usfirst.frc3528.UpNext2016Robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -21,6 +22,7 @@ public class IncreaseSensitivity extends Command {
     		RobotMap.driveMode += 1;
     	}
     	Robot.driveTrain.updateSensitivity();
+    	SmartDashboard.putNumber("Drive Mode: ", RobotMap.driveMode);
     }
 
     // Called repeatedly when this Command is scheduled to run

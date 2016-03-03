@@ -22,6 +22,7 @@ public class DriveTrain extends Subsystem {
 	
 	boolean isRightSensorTriggered;
 	boolean isLeftSensorTriggered;
+	boolean driveReversed;
 	
 	
 	// Constructing drivetrain and Gyro
@@ -139,7 +140,6 @@ public class DriveTrain extends Subsystem {
 		
 		SmartDashboard.putNumber("Left Encoder: ", frontLeftEncPos);
     	SmartDashboard.putNumber("Right Encoder: ", frontRightEncPos);
-    	SmartDashboard.putNumber("Drive Mode: ", RobotMap.driveMode);
     	SmartDashboard.putBoolean("Right Sensor Triggered: ", isRightSensorTriggered);
     	SmartDashboard.putBoolean("Left Sensor Triggered: ", isLeftSensorTriggered);
 	}
