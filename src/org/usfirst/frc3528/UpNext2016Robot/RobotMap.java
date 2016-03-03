@@ -27,6 +27,9 @@ public class RobotMap {
     public static RobotDrive driveTraintankDrive;
     public static ADXRS450_Gyro gyro;
     
+    public static DigitalInput frontRightSensor;
+    public static DigitalInput frontLeftSensor;
+    
     
     public static boolean driveWithSingleJoystick = false;
     public static boolean driveIsReversed = false;
@@ -57,6 +60,8 @@ public class RobotMap {
     public static final int FRONT_RIGHT_TALON = 2;
     public static final int BACK_RIGHT_TALON = 4;
     public static final int GYRO = 0;
+    public static final int FRONT_RIGHT_SENSOR = 4;
+    public static final int FRONT_LEFT_SENSOR = 5;
     
     
     // Arm
@@ -133,6 +138,9 @@ public class RobotMap {
               driveTrainfrontRightMotor, driveTrainbackRightMotor);
         
         gyro = new ADXRS450_Gyro();
+        
+        frontRightSensor = new DigitalInput(FRONT_RIGHT_SENSOR);
+        frontLeftSensor = new DigitalInput(FRONT_LEFT_SENSOR);
         
         
         // Constructing Intake Arm
