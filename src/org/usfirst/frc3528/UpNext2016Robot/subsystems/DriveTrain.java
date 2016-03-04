@@ -66,7 +66,7 @@ public class DriveTrain extends Subsystem {
     public void rawDrive(double left, double right) {
     	tankDrive.tankDrive(left, right);
     }
-    
+     
     // Resets a drive encoder
     public void zeroEncoder(CANTalon tal) {
     	tal.setPosition(0);
