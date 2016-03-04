@@ -28,9 +28,9 @@ public class DriveUntilSensorsTriggered extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (Robot.driveTrain.getRightSensorValue()) {
-    		Robot.driveTrain.rawDrive(power, 0);
+    		Robot.driveTrain.rawDrive(power + -.1, -power);
     	} else if (Robot.driveTrain.getLeftSensorValue()) {
-     		Robot.driveTrain.rawDrive(0, power);
+     		Robot.driveTrain.rawDrive(-power, power + -.1);
      	}
     		
     	
