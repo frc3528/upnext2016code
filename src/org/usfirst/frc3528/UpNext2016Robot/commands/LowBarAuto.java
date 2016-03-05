@@ -10,6 +10,7 @@ public class LowBarAuto extends CommandGroup {
     public  LowBarAuto() {
     	addSequential( new BallOnTopAuto() );
         addSequential( new LowerArmToLimit() );
-        addSequential( new DriveByEncoderCounts(6000, 6, -.60) );
+        addSequential( new DriveUntilSensorsTriggered(-.5, 4));
+        addSequential( new DriveByEncoderCounts(3500, 6, -.60) );
     }
 }

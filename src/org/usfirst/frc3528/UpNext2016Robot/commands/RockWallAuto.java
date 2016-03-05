@@ -9,6 +9,7 @@ public class RockWallAuto extends CommandGroup {
     
     public  RockWallAuto() {
     	addSequential( new BallOnTopAuto() );
-        addSequential( new DriveByEncoderCounts(6300, 6, -.8) );
+    	addSequential( new DriveUntilSensorsTriggered(-.5, 4));
+        addSequential( new DriveByEncoderCounts(3500, 6, -.8) );
     }
 }
