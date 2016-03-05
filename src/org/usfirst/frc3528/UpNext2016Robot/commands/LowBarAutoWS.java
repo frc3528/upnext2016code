@@ -5,12 +5,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class LowBarAuto extends CommandGroup {
+public class LowBarAutoWS extends CommandGroup {
     
-    public  LowBarAuto() {
+    public  LowBarAutoWS() {
     	addSequential( new BallOnTopAuto() );
         addSequential( new LowerArmToLimit() );
-        addSequential( new DriveUntilSensorsTriggered(-.5, 4));
-        addSequential( new DriveByEncoderCounts(4500, 6, -.60) );
+        //addSequential( new DriveUntilSensorsTriggered(-.5, 4));
+        addSequential( new DriveByEncoderCounts(8000, 6, -.60) );
     }
 }

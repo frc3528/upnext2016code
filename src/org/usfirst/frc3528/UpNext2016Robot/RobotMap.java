@@ -31,6 +31,7 @@ public class RobotMap {
     public static DigitalInput frontLeftSensor;
     
     
+    
     public static boolean driveWithSingleJoystick = false;
     public static boolean driveIsReversed = false;
     public static boolean isHighGear = false;
