@@ -14,7 +14,7 @@ public class PortcullisJTTW extends CommandGroup {
     	
     	addParallel ( new LowerArmToLimit() );
     	// Driving forward just enough to get the arm in position to lift
-    	addSequential ( new DriveByEncoderCounts(600, 5, -0.45) );
+    	addSequential ( new DriveByEncoderCounts(650, 5, -0.45) );
     	// Lifting the arm to vertical height, and driving forward slowly
     	addParallel ( new MoveArmToPosition(1, 6, 300) );
     	addSequential ( new DriveByEncoderCounts(1000, 8, -0.38) );

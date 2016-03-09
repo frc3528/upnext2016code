@@ -43,11 +43,16 @@ public class Robot extends IterativeRobot {
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Do Nothing", new AutonomousCommand());
         autoChooser.addObject("Low Bar Auto", new LowBarAuto());
+        autoChooser.addObject("Low Bar Auto WS", new LowBarAutoWS());
         autoChooser.addObject("Rock Wall Auto", new RockWallAuto());
+        autoChooser.addObject("Rock Wall Auto WS", new RockWallAutoWS());
         autoChooser.addObject("Moat Auto", new MoatAuto());
         autoChooser.addObject("Cheval Auto", new ChevyAuto());
+        autoChooser.addObject("Cheval Auto WS", new ChevyAutoWS());
         autoChooser.addObject("Portcullis Auto", new PortcullisAuto());
+        autoChooser.addObject("Portcullis Auto WS", new PortcullisAutoWS());
         autoChooser.addObject("Drive To Defense", new DriveToDefenseAuto());
+        autoChooser.addObject("Drive To Defense WS", new DriveToDefenseAutoWS());
         SmartDashboard.putData("Autonomous Mode Chooser", autoChooser);
         
         // ********** Finish setting up autonomous chooser **********

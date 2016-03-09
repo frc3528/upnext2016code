@@ -14,6 +14,7 @@ public class ToggleDriveMode extends Command {
     protected void initialize() {
     	// Toggles boolean that stores whether the robot is in single joystick drive mode or not.
     	RobotMap.driveWithSingleJoystick = !RobotMap.driveWithSingleJoystick;
+    	SmartDashboard.putBoolean("Single joystick mode", RobotMap.driveWithSingleJoystick);
     }
 
     protected void execute() {
