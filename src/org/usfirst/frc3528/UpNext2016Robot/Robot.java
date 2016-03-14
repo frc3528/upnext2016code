@@ -44,6 +44,7 @@ public class Robot extends IterativeRobot {
         autoChooser.addDefault("Do Nothing", new AutonomousCommand());
         autoChooser.addObject("Low Bar Auto", new LowBarAuto());
         autoChooser.addObject("Low Bar Auto WS", new LowBarAutoWS());
+        autoChooser.addObject("Low Bar Auto Backwards", new LowBarAutoBackwards());
         autoChooser.addObject("Rock Wall Auto", new RockWallAuto());
         autoChooser.addObject("Rock Wall Auto WS", new RockWallAutoWS());
         autoChooser.addObject("Moat Auto", new MoatAuto());

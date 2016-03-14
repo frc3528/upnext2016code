@@ -11,6 +11,6 @@ public class LowBarAutoWS extends CommandGroup {
     	addSequential( new BallOnTopAuto() );
         addSequential( new LowerArmToLimit() );
         addSequential( new DriveUntilSensorsTriggered(-.5, 4));
-        addSequential( new DriveByEncoderCounts(4500, 6, -.60) );
+        addSequential( new DriveByEncoderCounts(4500, 5, -.60) );
     }
 }
