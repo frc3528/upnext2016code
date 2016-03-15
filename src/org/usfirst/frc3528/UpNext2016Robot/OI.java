@@ -73,10 +73,10 @@ public class OI {
         
         // Drive Stick
         
-        driveModeToggleButton = new JoystickButton(driveStick, RobotMap.A);
+        driveModeToggleButton = new JoystickButton(driveStick, RobotMap.Y);
         driveModeToggleButton.whenPressed(new ToggleDriveMode());
         
-        reverseDriveControl = new JoystickButton(driveStick, RobotMap.X);
+        reverseDriveControl = new JoystickButton(driveStick, RobotMap.A);
         reverseDriveControl.whenPressed(new ReverseDriveControl());
         
         driveLeftTrigger = new JoystickButton(driveStick, RobotMap.LEFT_TRIGGER);
