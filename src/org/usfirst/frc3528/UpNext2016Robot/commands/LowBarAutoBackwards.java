@@ -10,6 +10,6 @@ public class LowBarAutoBackwards extends CommandGroup {
     public  LowBarAutoBackwards() {
     	addSequential( new BallOnTopAuto() );
         addParallel( new LowerArmToLimit() );
-        addSequential( new DriveByEncoderCounts(7000, 5, .60) );
+        addSequential( new DriveByEncoderCounts(6500, 5, .60) );
     }
 }
