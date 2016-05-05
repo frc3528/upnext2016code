@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class IntakeArm extends Subsystem {
     
     double armEncoderPos;
-	boolean isArmIn;
+	boolean isArmInOne;
+	boolean isArmInTwo;
 	boolean isArmOut;
 	
 	
@@ -23,7 +24,8 @@ public class IntakeArm extends Subsystem {
     Encoder armEncoder = RobotMap.armEncoder;
     
     // Constructing Hall Effect sensors to detect the high and low positions of the arm.
-    DigitalInput armIn = RobotMap.armIn;
+    DigitalInput armInOne = RobotMap.armInOne;
+    DigitalInput armInTwo = RobotMap.armInTwo;
     DigitalInput armOut = RobotMap.armOut;
     
 	
@@ -55,7 +57,11 @@ public class IntakeArm extends Subsystem {
     
     // Returns the value of the Hall Effect sensor marking the High position
     public boolean armIn() {
-    	return !armIn.get();
+    	if (!armInOne.get() || !armInTwo.get()) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
     
     // Returns the value of the Hall Effect sensor marking the Low position
@@ -70,11 +76,11 @@ public class IntakeArm extends Subsystem {
     // Refreshes SmartDashboard data for the arm.
     public void updateArmTelemetry() {
     	armEncoderPos = Robot.intakeArm.getArmPos();
-    	isArmIn = Robot.intakeArm.armIn();
+    	isArmInOne = Robot.intakeArm.armIn();
     	isArmOut = Robot.intakeArm.armOut();
     	
     	SmartDashboard.putNumber("Arm Encoder", armEncoderPos);
-    	SmartDashboard.putBoolean("Arm In: ", isArmIn);
+    	SmartDashboard.putBoolean("Arm In: ", isArmInOne);
     	SmartDashboard.putBoolean("Arm Out: ", isArmOut);
     }
     

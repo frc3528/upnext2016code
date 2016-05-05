@@ -42,7 +42,8 @@ public class RobotMap {
     public static VictorSP armDriveMotor;
     public static VictorSP intakeDriveMotor;
     public static Encoder armEncoder;
-    public static DigitalInput armIn;
+    public static DigitalInput armInOne;
+    public static DigitalInput armInTwo;
     public static DigitalInput armOut;
     
     public static boolean manualArmDrive = true;
@@ -70,7 +71,8 @@ public class RobotMap {
     public static final int INTAKE_MOTOR_VICTOR = 1;
     public static final int ARM_ENCODER_A = 0;
     public static final int ARM_ENCODER_B = 1;
-    public static final int ARM_IN = 2;
+    public static final int ARM_IN_ONE = 2;
+    public static final int ARM_IN_TWO = 6;
     public static final int ARM_OUT = 3;
     
     
@@ -150,7 +152,8 @@ public class RobotMap {
         intakeDriveMotor = new VictorSP(INTAKE_MOTOR_VICTOR);
         
         armEncoder = new Encoder(ARM_ENCODER_A, ARM_ENCODER_B);
-        armIn = new DigitalInput(ARM_IN);
+        armInOne = new DigitalInput(ARM_IN_ONE);
+        armInTwo = new DigitalInput(ARM_IN_TWO);
         armOut = new DigitalInput(ARM_OUT);
         
         
