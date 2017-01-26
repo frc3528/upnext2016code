@@ -2,7 +2,7 @@ package org.usfirst.frc3528.UpNext2016Robot;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.CANTalon;
+import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -170,9 +170,7 @@ public class RobotMap {
         
         // Setting up USB Camera
         
-        server = CameraServer.getInstance();
-        server.setQuality(50);
-        server.startAutomaticCapture("cam1");
+        CameraServer.getInstance().startAutomaticCapture();
         
     }
     
